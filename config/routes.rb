@@ -1,5 +1,18 @@
 MyVacancy::Application.routes.draw do
-  devise_for :users
+  get "homes/index"
+
+  root :to => 'homes#index'
+
+  devise_for :users,:controllers => {
+    :sessions => "admin/sessions",
+    :passwords => "admin/passwords",
+    :registrations => "admin/registrations",
+  }
+
+  namespace :admin do 
+    root :to => 'homes#index'
+    resources :categories
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

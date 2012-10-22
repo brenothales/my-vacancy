@@ -8,3 +8,8 @@
 
 Role.create(:name => 'administrador')
 Role.create(:name => 'moderador')
+
+User.create(:full_name => 'Luiz Cezer', :phone => '(45) 99858693', :city_id => 1, :email => 'lccezinha@gmail.com', :password => '123456', :role_id => Role.first.id, :situation => true)
+
+Category.create(:name => 'Quarto', :situation => true)
+Category.create(:name => 'Vaga em Republica', :situation => true)

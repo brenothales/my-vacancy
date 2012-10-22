@@ -1,0 +1,13 @@
+%div.well{:style => 'width:30%;margin:0 auto'}
+  %h2 Sign in 
+
+  %h4 FLASH MSG !!!
+
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .form_inputs
+      = f.input :email, :required => false, :autofocus => true, :placeholder => 'seu email', :class => 'span4'
+      = f.input :password, :required => false, :placeholder => 'seu email'
+      = f.input :remember_me, :hint => 'caso deseje lembrar seus dados', :as => :boolean if devise_mapping.rememberable?
+    .form_inputs
+      = f.button :submit, 'Sign in', :class => 'btn btn-primary btn-block btn-large'
+  = render "devise/shared/links"
