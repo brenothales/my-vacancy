@@ -6,9 +6,14 @@
     = f.error_notification
 
     .form_inputs
+      = f.input :name, :label => 'Nome completo', :required => true, :autofocus => true, :placeholder => 'nome completo', :input_html => { :class => 'span4' }
       = f.input :email, :required => true, :autofocus => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
-      = f.input :password, :required => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
-      = f.input :password_confirmation, :required => false, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :password, :label => 'Senha', :required => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :password_confirmation, :label => 'Confirmação de Senha', :required => false, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :phone, :label => 'Celular', :required => true, :autofocus => true, :placeholder => 'celular', :input_html => { :class => 'span4' }
+    .form_inputs      
+      %div.pull-left= select_tag :state_id, options_for_select(State.order(:name => :asc).collect { |state| [state.name, state.id] }), :class => 'span2', :prompt => 'selecione o estado'
+      %div.pull-right= select_tag :state_id, options_for_select(State.order(:name => :asc).collect { |state| [state.name, state.id] }), :class => 'span2', :prompt => 'selecione o estado'
     .form_inputs
       = f.button :submit, 'Sign in', :class => 'btn btn-large btn-block btn-primary'
     %hr
