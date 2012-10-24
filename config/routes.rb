@@ -3,11 +3,7 @@ MyVacancy::Application.routes.draw do
 
   root :to => 'homes#index'
 
-  devise_for :users,:controllers => {
-    :sessions => "admin/sessions",
-    :passwords => "admin/passwords",
-    :registrations => "admin/registrations",
-  }
+  devise_for :users
 
   namespace :admin do 
     root :to => 'homes#index'

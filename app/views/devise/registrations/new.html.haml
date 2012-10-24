@@ -1,0 +1,19 @@
+%div.well.span4.offset4
+  %h2= t(:sign_up)
+  %hr
+  %p= show_flash flash[:notice]
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = f.error_notification
+
+    .form_inputs
+      = f.input :name, :label => 'Nome completo', :required => true, :autofocus => true, :placeholder => 'nome completo', :input_html => { :class => 'span4' }
+      = f.input :email, :required => true, :autofocus => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :password, :label => 'Senha', :required => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :password_confirmation, :label => 'Confirmação de Senha', :required => false, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :phone, :label => 'Celular', :required => true, :autofocus => true, :placeholder => 'celular', :input_html => { :class => 'span4' }
+    .form_inputs
+      = f.button :submit, t(:sign_up_button), :class => 'btn btn-large btn-block btn-primary'
+    %hr
+    .form_inputs
+      = f.input :remember_me, :label => t(:remember_me), :as => :boolean if devise_mapping.rememberable?
+  = render "devise/shared/links"

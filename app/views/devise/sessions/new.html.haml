@@ -1,0 +1,15 @@
+%div.well.span4.offset4
+  %h2= t(:sign_in)
+  %hr
+  %p= show_flash flash[:notice]
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .form_inputs
+      = f.input :email, :required => true, :autofocus => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+      = f.input :password, :required => true, :placeholder => 'seu email', :input_html => { :class => 'span4' }
+    .form_inputs
+      = f.button :submit, t(:sign_in_button), :class => 'btn btn-large btn-block btn-primary'
+    %hr
+    .form_inputs
+      = f.input :remember_me, :label => t(:remember_me), :as => :boolean if devise_mapping.rememberable?
+  = render "devise/shared/links"
+

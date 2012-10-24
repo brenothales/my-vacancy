@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  belongs_to :city
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -8,8 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :phone, :city_id, :email, :password, :password_confirmation, :remember_me, :role_id, :situation
-  attr_reader :state_id
+  attr_accessible :name, :phone, :email, :password, :password_confirmation, :remember_me, :role_id, :situation
   # attr_accessible :title, :body
   
   def is_role?(role)
@@ -26,5 +24,12 @@ class User < ActiveRecord::Base
   end
     
   validates_confirmation_of :password
+  after_create :notification_user
+
+protected
+  
+  def notification_user
+    NotificationMailer.notify_new_account(self).deliver
+  end
 
 end

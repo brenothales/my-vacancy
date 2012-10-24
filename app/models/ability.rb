@@ -6,6 +6,7 @@ class Ability
     if user.role?(:administrador)
       can :manage, :all    
     end
+    can :create, User
 
     # Define abilities for the passed in user here. For example:
     #
