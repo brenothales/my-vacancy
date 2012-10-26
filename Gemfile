@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'simple_form'
 gem 'haml-rails'
+gem "haml-bootstrap-rails"
 
 
 # Gems used only for assets and not required

@@ -1,8 +1,31 @@
 ptBR:
-  sign_in: Faça o Login
-  sign_in_button: Efetuar Login
-  remember_me: Lembrar ?
-  sign_up: Registrar-se
-  sign_up_button: Efetuar Registro
-  forgot_password: Esqueceu sua senha ?
-  send_instructions: Enviar instruções para nova senha
+  general:
+    admin_title: Painel Administrativo
+    register: Registrar
+    login: Logar
+
+  devise_forms:
+    sign_in: Faça o Login
+    sign_in_button: Efetuar Login
+    remember_me: Lembrar ?
+    sign_up: Registrar-se
+    sign_up_button: Efetuar Registro
+    forgot_password: Esqueceu sua senha ?
+    send_instructions: Enviar instruções para nova senha
+    logout_confirm: Deseja realmente sair?
+  
+  placeholders:
+    email: Seu email
+    password: Sua Senha
+    password_confirmation: Confirme sua senha 
+    name: Seu nome
+    cel: Seu celular
+    forgot_password_email: Digite seu email
+
+  preferences:
+    welcome: Bem vindo
+    my_profile: Meu perfil
+    edit_profile: Editar perfil
+    logout: Logout
+    
+   

@@ -52,6 +52,11 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     haml (3.1.7)
+    haml-bootstrap-rails (0.3.11)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.1)
+      railties (~> 3.0)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
       activesupport (>= 3.1, < 4.1)
@@ -145,6 +150,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
+  haml-bootstrap-rails
   haml-rails
   jquery-rails
   mysql2

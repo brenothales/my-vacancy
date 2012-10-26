@@ -7,7 +7,6 @@ MyVacancy::Application.routes.draw do
 
   namespace :admin do 
     root :to => 'homes#index'
-    resources :categories
   end
 
   # The priority is based upon order of creation:
