@@ -19,6 +19,7 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$('.alert.alert-success, .alert.alert-error, .alert.alert-warning').slideUp('fast');
 	}, 5000)
+
 });
 
 

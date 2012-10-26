@@ -3,6 +3,16 @@ ptBR:
     admin_title: Painel Administrativo
     register: Registrar
     login: Logar
+    welcome: Bem vindo
+    logged_user: Usúario atualmente logado
+    application_name: Nameless Project
+    new_user: Usuário registrado com sucesso !
+
+  page:
+    titles:
+      register: Faça seu registro
+      login: Faça seu login
+      forgot_password: Esqueceu sua senha? 
 
   devise_forms:
     sign_in: Faça o Login
@@ -13,7 +23,14 @@ ptBR:
     forgot_password: Esqueceu sua senha ?
     send_instructions: Enviar instruções para nova senha
     logout_confirm: Deseja realmente sair?
-  
+    
+  labels:
+    name: Nome Completo
+    email: Email
+    phone: Celuar
+    password: Senha
+    password_confirmation: Confirmação de senha
+
   placeholders:
     email: Seu email
     password: Sua Senha
@@ -28,4 +45,25 @@ ptBR:
     edit_profile: Editar perfil
     logout: Logout
     
-   
+  tooltips:
+    register: clique e faça o seu registro
+    login: clique e faça o seu login
+
+  dashboard:
+    moderador:
+      table:
+        title: Título
+        created_at: Anunciado em
+        category: Categoria
+        actions: Ações
+      annoucement: 
+        new: Novo Anúncio
+        old: Anúncios anteriores
+      comments:
+        title: Comentários
+        from_me: Meus comentários
+        to_me: Comentários recebidos
+      interests:
+        title: Interesses
+        from_me: Meus interesses
+        to_me: Interesses sobre meus anúncios

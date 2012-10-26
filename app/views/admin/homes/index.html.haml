@@ -1,4 +1,13 @@
-%h3= @msg
-= show_flash(flash)
+.alert.alert-info
+  %button.close{ :data => { :dismiss => :alert } } X
+  %h3= @msg
 
-= link_to 'destroy', destroy_user_session_path, :method => :delete
+.alert.alert-warning
+  %button.close{ :data => { :dismiss => :alert } } X
+  %h3 Alerta
+
+.alert.alert-error
+  %button.close{ :data => { :dismiss => :alert } } X
+  %h3 Alerta
+
+= dashboard_for_role(current_user.role.name)

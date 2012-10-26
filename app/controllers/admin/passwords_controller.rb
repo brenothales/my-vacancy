@@ -1,3 +1,4 @@
 class Admin::PasswordsController < Devise::SessionsController
-  layout 'login'
+  layout "login"
 end
+

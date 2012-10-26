@@ -5,8 +5,10 @@ class Ability
     user ||= User.new
     if user.role?(:administrador)
       can :manage, :all    
+    elsif user.role(:moderador)
+      can :manage, :all          
     end
-    can :create, User
+    can :create, User    
 
     # Define abilities for the passed in user here. For example:
     #

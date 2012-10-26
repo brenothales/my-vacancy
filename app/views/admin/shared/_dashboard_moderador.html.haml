@@ -1,0 +1,72 @@
+.row
+  .span3
+    .sidebar-nav
+      .well
+        %ul.nav.nav-list
+          %li.nav-header Status
+          %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
+          %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
+          %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
+          %li.divider
+          %li= link_to 'exemplo', '#'   
+  .span9
+    .tabbable
+      %ul.nav.nav-tabs
+        %li.active= link_to t('dashboard.moderador.annoucement.new'), '#tab1', :data => { :toggle => :tab }
+        %li= link_to t('dashboard.moderador.annoucement.old'), '#tab2', :data => { :toggle => :tab }
+        %li= link_to t('dashboard.moderador.comments.title'), '#tab3', :data => { :toggle => :tab }
+        %li= link_to t('dashboard.moderador.interests.title'), '#tab4', :data => { :toggle => :tab }
+
+      .tab-content
+        .tab-pane.active#tab1
+          %p Tab 1
+        .tab-pane#tab2
+          %table.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th= t('dashboard.moderador.table.title')
+                %th= t('dashboard.moderador.table.created_at')
+                %th= t('dashboard.moderador.table.category')
+                %th= t('dashboard.moderador.table.actions')
+            %tbody
+              %tr
+                %td Notebook
+                %td 19/02/2010
+                %td Venda
+                %td ----
+              %tr
+                %td Quarto em República
+                %td 14/27/8888
+                %td Aluguel
+                %td -----
+              %tr
+                %td Quarto em Pensão
+                %td 45/82/1235
+                %td Venda
+                %td -----
+          
+        .tab-pane#tab3
+          .accordion
+            .accordion-group
+              .accordion-heading= link_to t('dashboard.moderador.comments.from_me'), '#meus-comentarios', :class => 'accordion-toggle', :data => { :toggle => :collapse }
+              .accordion-body.collapse#meus-comentarios
+                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
+            .accordion-group
+              .accordion-heading= link_to t('dashboard.moderador.comments.to_me'), '#comentarios-recebidos', :class => 'accordion-toggle', :data => { :toggle => :collapse }
+              .accordion-body.collapse#comentarios-recebidos
+                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
+
+        .tab-pane#tab4
+          .accordion
+            .accordion-group
+              .accordion-heading= link_to t('dashboard.moderador.interests.from_me'), '#meus-interesses', :class => 'accordion-toggle', :data => { :toggle => :collapse }
+              .accordion-body.collapse#meus-interesses
+                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
+            .accordion-group
+              .accordion-heading= link_to t('dashboard.moderador.interests.to_me'), '#interesses-sobre-meus-anuncios', :class => 'accordion-toggle', :data => { :toggle => :collapse }
+              .accordion-body.collapse#interesses-sobre-meus-anuncios
+                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
+
+
+        .tab-pane#tab4
+          %p tab 4

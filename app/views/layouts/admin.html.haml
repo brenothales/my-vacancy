@@ -30,31 +30,7 @@
                       %li= link_to "<i class='icon-off'></i> #{t('preferences.logout')}".html_safe, destroy_user_session_path, :method => :delete, :confirm => t('devise_forms.logout_confirm')
 
 
-      .row
-        .span3
-          .sidebar-nav
-            .well
-              %ul.nav.nav-list
-                %li.nav-header Status
-                %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-                %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-                %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-                %li.divider
-                %li= link_to 'exemplo', '#'   
-        .span8
-          .tabbable
-            %ul.nav.nav-tabs
-              %li.active= link_to 'tab1', '#tab1', :data => { :toggle => :tab }
-              %li= link_to 'tab2', '#tab2', :data => { :toggle => :tab }
-              %li= link_to 'tab3', '#tab3', :data => { :toggle => :tab }
-
-            .tab-content
-              .tab-pane.active#tab1
-                %p Tab 1
-              .tab-pane#tab2
-                %p tab 2
-              .tab-pane#tab3
-                %p tab 3
+      = yield 
     
     = render '/shared/footer'
 

@@ -1,14 +1,16 @@
+- meta_title "#{t('general.application_name')} > #{t('page.titles.forgot_password')}"
+
 %div.well.span4.offset4
-  %h2 Esqueceu a senha?
+  %h2= t('devise_forms.forgot_password')
   %hr
-  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| 
+  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post } ) do |f| 
     = f.error_notification
     .form-inputs
-      = f.input :email, :required => true, :autofocus => true, :placeholder => 'nova senha', :input_html => { :class => 'span4' }
+      = f.input :email, :label =>  t('labels.email') ,:required => true, :autofocus => true, :placeholder => t("placeholders.forgot_password_email"), :input_html => { :class => 'span4' }
     .form-actions
-      = f.button :submit, 'Enviar instruções para nova senha', :class => 'btn btn-large btn-block btn-primary'
+      = f.button :submit, t('devise_forms.send_instructions'), :class => 'btn btn-large btn-block btn-primary'
 
-  %span.pull-left= link_to 'Sign in', new_session_path(resource_name), :class => 'btn btn-success'
+  %span.pull-left= link_to t('devise_forms.sign_in'), new_session_path(resource_name), :class => 'btn btn-success'
 
-  %span.pull-right= link_to "Sign up", new_registration_path(resource_name), :class => 'btn btn-warning'
-  
+  %span.pull-right= link_to t('devise_forms.sign_up'), new_registration_path(resource_name), :class => 'btn btn-warning'
+

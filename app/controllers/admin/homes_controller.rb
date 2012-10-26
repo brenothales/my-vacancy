@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @msg = 'hello admin'
+    @msg = current_user.role.name
   end
 
 end

@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Login
+    = yield :titles
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -11,3 +11,4 @@
       = yield 
 
     = render "/shared/footer"
+

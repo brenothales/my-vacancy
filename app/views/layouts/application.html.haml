@@ -15,13 +15,10 @@
             .nav-collapse.collapse            
               %ul.nav
                 %li.divider-vertical
-                %li= link_to 'link', '#'
+                %li= link_to 'link', 'http://www.google.com'
                 %li= link_to 'link', '#'
                 %li= link_to 'link', '#'
             
-              %ul.pull-right.nav 
-                %li.dropdown
-                  = link_to "#{t('general.login')}  <b class='caret'></b>".html_safe, '#', :class => 'dropdown-toggle', :data => { :toggle => :dropdown }
-                  .dropdown-menu{ :style => "padding: 15px; padding-bottom: 0px;" }
-                    = simple_form_for(User.new, :as => User, :url => session_path(User)) do |f|
-                      = f.input :email, :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :style => 'margin-bottom: 15px;' }
+              = show_register_or_login
+               
+      = yield

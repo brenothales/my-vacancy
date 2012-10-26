@@ -25,11 +25,16 @@ class User < ActiveRecord::Base
     
   validates_confirmation_of :password
   after_create :notification_user
+  after_create :set_role_for_user
 
 protected
   
   def notification_user
     NotificationMailer.notify_new_account(self).deliver
+  end
+
+  def set_role_for_user
+    self.role_id = 2  
   end
 
 end
