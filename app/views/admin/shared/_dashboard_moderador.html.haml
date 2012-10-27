@@ -4,18 +4,16 @@
       .well
         %ul.nav.nav-list
           %li.nav-header Status
+          %li= link_to "Meus Anúncios  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
           %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-          %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-          %li= link_to "Exemplo  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
-          %li.divider
-          %li= link_to 'exemplo', '#'   
+
   .span9
     .tabbable
       %ul.nav.nav-tabs
         %li.active= link_to t('dashboard.moderador.annoucement.new'), '#tab1', :data => { :toggle => :tab }
         %li= link_to t('dashboard.moderador.annoucement.old'), '#tab2', :data => { :toggle => :tab }
-        %li= link_to t('dashboard.moderador.comments.title'), '#tab3', :data => { :toggle => :tab }
-        %li= link_to t('dashboard.moderador.interests.title'), '#tab4', :data => { :toggle => :tab }
+        %li= link_to "#{t('dashboard.moderador.comments.title')} <span class='label label-important notitication-alinhamento'>3</span>".html_safe, '#tab3', :data => { :toggle => :tab }
+        %li= link_to "#{t('dashboard.moderador.interests.title')} <span class='label label-important notitication-alinhamento'>3</span>".html_safe, '#tab4', :data => { :toggle => :tab }
 
       .tab-content
         .tab-pane.active#tab1
@@ -46,15 +44,22 @@
                 %td -----
           
         .tab-pane#tab3
-          .accordion
-            .accordion-group
-              .accordion-heading= link_to t('dashboard.moderador.comments.from_me'), '#meus-comentarios', :class => 'accordion-toggle', :data => { :toggle => :collapse }
-              .accordion-body.collapse#meus-comentarios
-                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
-            .accordion-group
-              .accordion-heading= link_to t('dashboard.moderador.comments.to_me'), '#comentarios-recebidos', :class => 'accordion-toggle', :data => { :toggle => :collapse }
-              .accordion-body.collapse#comentarios-recebidos
-                %p lorem haiuahueiueiu ahuieh ah iaheui huiaeh haiue hiuahieuhauiheuihaiuhiaehi ahiuaheui
+          %div.comments 
+            %blockquote lorem haiuhiue ahuieh auiehuai ehiua e aiueh uiahaiue iuah eiuh aeuiha 
+            %p
+              %i.icon-user &nbsp; Luiz Filho
+              %i.icon-calendar &nbsp; em 14/27/99
+              %i.icon-calendar &nbsp; @lccezinha
+              %i.icon-calendar &nbsp; lccezinha
+            %hr
+            %blockquote lorem haiuhiue ahuieh auiehuai ehiua e aiueh uiahaiue iuah eiuh aeuiha 
+            %p
+              %i.icon-user &nbsp; Luiz Filho
+              %i.icon-calendar &nbsp; em 14/27/99
+              %i.icon-calendar &nbsp; @lccezinha
+              %i.icon-calendar &nbsp; lccezinha
+
+
 
         .tab-pane#tab4
           .accordion

@@ -51,6 +51,8 @@ ptBR:
 
   dashboard:
     moderador:
+      updates:
+        title: Atualizações
       table:
         title: Título
         created_at: Anunciado em

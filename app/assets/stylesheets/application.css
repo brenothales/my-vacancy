@@ -12,8 +12,9 @@
  *= require_tree .
  */
 
-.label.label-info.alinhamento { float:right;padding:3px; }
-
+.alinhamento { float:right;padding:3px; }
+.notitication-alinhamento { margin-left:2px; }
+div.comments p i { margin-right:10px; }
 
 
 /* Footer
