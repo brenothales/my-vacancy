@@ -7,6 +7,9 @@ ptBR:
     logged_user: Usúario atualmente logado
     application_name: Nameless Project
     new_user: Usuário registrado com sucesso !
+    new_user_fail: Erro ao criar o novo usúario
+    created_at: Criado em 
+    updated_at: Atualizado em
 
   page:
     titles:
@@ -45,12 +48,27 @@ ptBR:
     edit_profile: Editar perfil
     logout: Logout
     
+  cruds:  
+    table_list:
+      comments:
+        accept: Aprovar
+        deny: Desaprovar
+      tooltips:
+        edit: editar registro
+        show: visualiar detalhes do registro
+        desactive: desativar registro
+        active: ativar registro  
+
   tooltips:
     register: clique e faça o seu registro
     login: clique e faça o seu login
 
   dashboard:
     moderador:
+      status:
+        annoucements: Meus Anúncios
+        comments: Comentários
+        interests_received: Interessados 
       updates:
         title: Atualizações
       table:
@@ -69,3 +87,18 @@ ptBR:
         title: Interesses
         from_me: Meus interesses
         to_me: Interesses sobre meus anúncios
+
+  activerecord: 
+    models:
+      annoucement:
+        one: Anúncio
+        other: Anúncios
+      
+
+      attributes:
+        annoucement:
+          name: Título
+          content: Descrição
+          value: Valor 
+          category_id: Categoria
+          tags: Tags

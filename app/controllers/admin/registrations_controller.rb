@@ -1,12 +1,9 @@
+#coding : utf-8
 class Admin::RegistrationsController < Devise::SessionsController
   layout "login"
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = t('general.new_user')
-      redirect_to new_user_session_path   
-    end
+  def after_sign_up_path_for(resource)
+    new_user_session_path
   end
 
 end
