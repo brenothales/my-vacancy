@@ -1,16 +1,36 @@
-%div.well.span4.offset4
+- meta_title "#{t('general.application_name')} > #{t('page.titles.register')}"
+
+.well.span5.about-system.offset1
+  %div
+    %h3= t('general.about_system.title_one')
+    %p= t('general.about_system.content_one')
+    %hr
+  %div
+    %h3= t('general.about_system.title_two')
+    %p= t('general.about_system.content_two')
+    %hr
+  %div
+    %h3= t('general.about_system.title_three')
+    %p= t('general.about_system.content_three')
+    %hr
+  %div
+    %h3= t('general.about_system.title_one')
+    %p= t('general.about_system.content_one')
+    %hr
+
+%div.well.span4
   %h2= t('devise_forms.sign_up')
   %hr
   %p= show_flash(flash)
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => :validate }) do |f|
     = f.error_notification
 
     .form_inputs
-      = f.input :name, :label => 'Nome completo', :required => true, :autofocus => true, :placeholder => t("placeholders.name"), :input_html => { :class => 'span4' }
-      = f.input :email, :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :class => 'span4' }
-      = f.input :password, :label => 'Senha', :required => true, :placeholder => t("placeholders.password"), :input_html => { :class => 'span4' }
-      = f.input :password_confirmation, :label => 'Confirmação de Senha', :required => false, :placeholder => t("placeholders.password_confirmation"), :input_html => { :class => 'span4' }
-      = f.input :phone, :label => 'Celular', :required => true, :autofocus => true, :placeholder => t("placeholders.cel"), :input_html => { :class => 'span4' }
+      = f.input :name, :label => t('labels.name'), :required => true, :autofocus => true, :placeholder => t("placeholders.name"), :input_html => { :class => 'span4' }
+      = f.input :email, :label => t('labels.email'), :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :class => 'span4' }
+      = f.input :password, :label =>  t('labels.password'), :required => true, :placeholder => t("placeholders.password"), :input_html => { :class => 'span4' }
+      = f.input :password_confirmation, :label =>  t('labels.password_confirmation'), :required => false, :placeholder => t("placeholders.password_confirmation"), :input_html => { :class => 'span4' }
+      = f.input :phone, :label =>  t('labels.phone'), :required => true, :autofocus => true, :placeholder => t("placeholders.cel"), :input_html => { :class => 'span4' }, :hint => "<small>Exemplo : (XX) XXXX-XXXX</small>".html_safe
     .form_inputs
       = f.button :submit, t('devise_forms.sign_up_button'), :class => 'btn btn-large btn-block btn-primary'
     %hr
@@ -19,5 +39,6 @@
         = f.input :remember_me, :label => t('devise_forms.remember_me'), :as => :boolean if devise_mapping.rememberable?
 
   = render "devise/shared/links"
+
 
 

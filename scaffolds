@@ -1,1 +1,7 @@
 rails g scaffold Category name:string situation:boolean --skip-stylesheet
+
+rails g model State name:string
+
+rails g model City name:string uf:string state:references
+
+rails g scaffold Announcement name:string content:text value:string city:references user:references phone:string --skip-stylesheet

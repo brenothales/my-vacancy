@@ -1,11 +1,13 @@
+- meta_title "#{t('general.application_name')} > #{t('page.titles.login')}"
+
 %div.well.span4.offset4
   %h2= t('devise_forms.sign_in')
   %hr
   %p= show_flash(flash)
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     .form_inputs
-      = f.input :email, :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :class => 'span4' }
-      = f.input :password, :required => true, :placeholder => t("placeholders.password"), :input_html => { :class => 'span4' }
+      = f.input :email, :label =>  t('labels.name'), :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :class => 'span4' }
+      = f.input :password, :label => t('labels.password'),:required => true, :placeholder => t("placeholders.password"), :input_html => { :class => 'span4' }
     .form_inputs
       = f.button :submit, t('devise_forms.sign_in_button'), :class => 'btn btn-large btn-block btn-primary'
     %hr
@@ -14,5 +16,6 @@
         = f.input :remember_me, :label => t('devise_forms.remember_me'), :as => :boolean if devise_mapping.rememberable?
  
   = render "devise/shared/links"
+
 
 

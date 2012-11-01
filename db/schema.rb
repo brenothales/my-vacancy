@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025234838) do
+ActiveRecord::Schema.define(:version => 20121101021031) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "name",        :limit => 100
+    t.text     "content"
+    t.decimal  "value",                      :precision => 10, :scale => 2
+    t.integer  "city_id"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+  end
+
+  add_index "announcements", ["city_id"], :name => "index_announcements_on_city_id"
+  add_index "announcements", ["user_id"], :name => "index_announcements_on_user_id"
+
+  create_table "announcements_tags", :id => false, :force => true do |t|
+    t.integer "announcements_id"
+    t.integer "tags_id"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -35,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20121025234838) do
 
   create_table "states", :force => true do |t|
     t.string   "name"
+    t.string   "uf"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

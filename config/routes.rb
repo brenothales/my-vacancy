@@ -4,14 +4,13 @@ MyVacancy::Application.routes.draw do
   root :to => 'homes#index'
 
   #rotas devise
-  devise_for :users, :controllers => {
-    :registrations => "admin/registrations",
-    :sessions => "admin/sessions",
-    :passwords => "admin/passwords"
-  }
+  devise_for :users
 
   namespace :admin do
     root :to => 'homes#index'
+    resources :announcements do 
+      get 'find_city_by_state', :on => :collection    
+    end
   end
 
   # The priority is based upon order of creation:

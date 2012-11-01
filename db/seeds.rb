@@ -11,14 +11,14 @@
 Role.create(:name => 'administrador')
 Role.create(:name => 'moderador')
 
-User.create(:name => 'Luiz Cezer', :phone => '(45) 99858693', :email => 'lccezinha@gmail.com', :password => '123456', :role_id => Role.first.id, :situation => true)
+User.create(:name => 'Luiz Cezer', :email => 'lccezinha@gmail.com', :password => '123456', :role_id => Role.first.id, :situation => true)
 
 Category.create(:name => 'Aluguel', :situation => true)
 Category.create(:name => 'Compra', :situation => true)
 Category.create(:name => 'Venda', :situation => true)
 
-State.create(:name => 'Paraná')
-State.create(:name => 'São Paulo')
+State.create(:name => 'Paraná', :uf => "PR")
+State.create(:name => 'São Paulo', :uf => "SP")
 
 City.create(:name => "Medianeira", :state_id => 1)
 City.create(:name => 'Foz do Iguaçu', :state_id => 1)

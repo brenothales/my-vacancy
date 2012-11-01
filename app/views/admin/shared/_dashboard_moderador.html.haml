@@ -4,27 +4,54 @@
       .well
         %ul.nav.nav-list
           %li.nav-header Status
-          %li= link_to "#{t('dashboard.moderador.status.annoucements')}  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
+          %li= link_to "#{t('dashboard.moderador.status.announcements')}  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
           %li= link_to "#{t('dashboard.moderador.status.comments')}  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
           %li= link_to "#{t('dashboard.moderador.status.interests_received')}  <span class='label label-info alinhamento'>4</span>".html_safe, '#'
 
   .span9
     .tabbable
       %ul.nav.nav-tabs
-        %li.active= link_to t('dashboard.moderador.annoucement.new'), '#tab1', :data => { :toggle => :tab }
-        %li= link_to t('dashboard.moderador.annoucement.old'), '#tab2', :data => { :toggle => :tab }
+        %li.active= link_to t('dashboard.moderador.announcement.new'), '#tab1', :data => { :toggle => :tab }
+        %li= link_to t('dashboard.moderador.announcement.old'), '#tab2', :data => { :toggle => :tab }
         %li= link_to "#{t('dashboard.moderador.comments.title')} <span class='label label-important notitication-alinhamento'>3</span>".html_safe, '#tab3', :data => { :toggle => :tab }
         %li= link_to "#{t('dashboard.moderador.interests.title')} <span class='label label-important notitication-alinhamento'>3</span>".html_safe, '#tab4', :data => { :toggle => :tab }
 
       .tab-content
         .tab-pane.active#tab1
-          .new-annoucement-form
-            = simple_form_for '#' do |f|
-              .control-group
-                %label.controls-label
-                  = t('activerecord.models.attributes.name')
-                .controls
-                  = f.input :name
+          .new-announcement-form
+            = simple_form_for [:admin, @announcement] do |f|
+              .primary-informations
+                .control-group
+                  %label.controls-label= t('activerecord.attributes.announcement.name')
+                  = f.input :name, :placeholder => t('placeholders.announcements.new.name'), :label => false, :input_html => { :class => 'input-large' }
+                
+                .control-group
+                  %label.controls-label= t('activerecord.attributes.announcement.value')
+                  = f.input :value, :placeholder => t('placeholders.announcements.new.value'), :label => false, :input_html => { :class => 'input-large' }
+                
+                .control.group
+                  %label.controls-label= t('activerecord.attributes.announcement.state')
+                  = select_tag :state_id, options_from_collection_for_select(@states, :id, :name), :prompt => t('activerecord.attributes.announcement.prompt_state')                 
+   
+                .control.group
+                  %label.controls-label= t('activerecord.attributes.announcement.city')
+                  = f.input :city_id, :collection => [], :prompt => t('activerecord.attributes.announcement.prompt_city'), :label => false
+                
+              .secondary-informations
+                .control.group
+                  %label.controls-label= t('activerecord.attributes.announcement.content')
+                  = f.input :content, :as => :text, :input_html => { :style => 'width:500px', :rows => 5 }, :label => false
+                  
+              .third-informations
+                .control.group
+                  %label.controls-label= t('activerecord.attributes.announcement.email')
+                  = text_field_tag :email, current_user.email, :disabled => :disabled, :label => false
+                
+                .control.group
+                  %label.controls-label= t('activerecord.attributes.announcement.phone')
+                  = text_field_tag :phone, current_user.phone, :disabled => :disabled, :label => false
+                  
+                
 
 
         .tab-pane#tab2

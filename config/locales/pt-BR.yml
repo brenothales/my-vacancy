@@ -10,6 +10,13 @@ ptBR:
     new_user_fail: Erro ao criar o novo usúario
     created_at: Criado em 
     updated_at: Atualizado em
+    about_system:
+      title_one: O que Nameless ?
+      content_one: É um sistema onde pessoas podem se registrar e fazer seu anúncios, de maneira fácil. Podem ainda gerenciar seus interesses em outros anúncios, verificar pessoas interessadas em seus anúncios e realizar contato para fechar negócio
+      title_two: Quando pago para usar o Nameless ?
+      content_two: Você não paga nada para poder cadastrar e acompanhar quantos anúncios quiser
+      title_three: Por que devo anunciar no Nameless ?
+      content_three: O Nameless é um sistema que fornece um agradavel e simples interface para todas as suas ações, e quanto mais gente anunciar, melhor o sistema fica.
 
   page:
     titles:
@@ -35,6 +42,12 @@ ptBR:
     password_confirmation: Confirmação de senha
 
   placeholders:
+    announcements:
+      new:
+        name: Informe o Título
+        content: Informe uma descrição sobre o anúncio
+        value: Informe o valor        
+      
     email: Seu email
     password: Sua Senha
     password_confirmation: Confirme sua senha 
@@ -48,7 +61,11 @@ ptBR:
     edit_profile: Editar perfil
     logout: Logout
     
-  cruds:  
+  cruds: 
+    notifications:
+      create: "%{model} criada com sucesso"
+      update: "%{model} atualizada com sucesso"
+      destroy: "%{model} apagada com sucesso"
     table_list:
       comments:
         accept: Aprovar
@@ -66,7 +83,7 @@ ptBR:
   dashboard:
     moderador:
       status:
-        annoucements: Meus Anúncios
+        announcements: Meus Anúncios
         comments: Comentários
         interests_received: Interessados 
       updates:
@@ -76,7 +93,7 @@ ptBR:
         created_at: Anunciado em
         category: Categoria
         actions: Ações
-      annoucement: 
+      announcement: 
         new: Novo Anúncio
         old: Anúncios anteriores
       comments:
@@ -88,17 +105,48 @@ ptBR:
         from_me: Meus interesses
         to_me: Interesses sobre meus anúncios
 
-  activerecord: 
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "{{model}} não pôde ser salvo: 1 erro"
+          other: "{{model}} não pôde ser salvo: %{count} erros."
+        body: "Por favor, verifique os seguintes campos:"
+      messages:
+        inclusion: "não está incluído na lista"
+        exclusion: "não está disponível"
+        invalid: "não é válido"
+        confirmation: "não está de acordo com a confirmação"
+        accepted: "precisa de ser aceite"
+        empty: "não pode estar vazio"
+        blank: "não pode estar vazio"
+        too_long: "é muito longo (não mais do que %{count} caracteres)"
+        too_short: "é muito curto (não menos do que %{count} caracteres)"
+        wrong_length: "não é do tamanho correto (precisa ter %{count} caracteres)"
+        taken: "não está disponível"
+        not_a_number: "não é um número"
+        greater_than: "precisa ser maior do que %{count}"
+        greater_than_or_equal_to: "precisa ser maior ou igual a %{count}"
+        equal_to: "precisa ser igual a %{count}"
+        less_than: "precisa ser menor do que %{count}"
+        less_than_or_equal_to: "precisa ser menor ou igual a %{count}"
+        odd: "precisa ser ímpar"
+        even: "precisa ser par"
     models:
-      annoucement:
+      announcement:
         one: Anúncio
         other: Anúncios
-      
-
-      attributes:
-        annoucement:
-          name: Título
-          content: Descrição
-          value: Valor 
-          category_id: Categoria
-          tags: Tags
+    attributes:
+      announcement:
+        name: Título
+        content: Descrição
+        value: Valor 
+        category_id: Categoria
+        tags: Tags
+        state: Estado
+        city: Cidade
+        situation: Está ativo ?
+        prompt_state: selecione o estado
+        prompt_city: selecione a cidade
+        phone: Telefone para Contato
+        email: Email para Contato
