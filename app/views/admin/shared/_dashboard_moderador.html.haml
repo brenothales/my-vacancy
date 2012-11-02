@@ -20,6 +20,7 @@
         .tab-pane.active#tab1
           .new-announcement-form
             = simple_form_for [:admin, @announcement] do |f|
+              
               .primary-informations
                 .control-group
                   %label.controls-label= t('activerecord.attributes.announcement.name')
