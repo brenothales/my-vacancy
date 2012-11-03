@@ -1,5 +1,6 @@
 module ApplicationHelper
   
+  
   def show_register_or_login
     content_tag(:ul, :class => 'nav pull-right') do 
       if user_signed_in?
@@ -17,5 +18,17 @@ module ApplicationHelper
   def dashboard_for_role(role)
     role.eql?('administrador') ? render('/admin/shared/dashboard_administrador') : render('/admin/shared/dashboard_moderador') 
   end
+
+  def create_menus
+    html = %()
+    Util.list_models.each { |model| html << render('admin/shared/menu_item', :model_for_menu => model) }
+    html.html_safe
+  end
+
+  def show_active_desactive(announcement)
+    announcement.situation ? link_to("<i class='icon-remove'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.desactive'), :data => { :placement => :top }) : link_to("<i class='icon-ok'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.active'), :data => { :placement => :top })
+  end
+
+
 
 end

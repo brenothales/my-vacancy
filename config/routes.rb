@@ -9,7 +9,7 @@ MyVacancy::Application.routes.draw do
   namespace :admin do
     root :to => 'homes#index'
     resources :announcements do 
-      get 'find_city_by_state', :on => :collection    
+      get 'find_cities_by_state', :on => :collection    
     end
   end
 

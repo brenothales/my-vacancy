@@ -14,11 +14,7 @@
           .container.nav-collapsecollapse
             %a.brand Nameless Project
             .nav-collapse.collapse            
-              %ul.nav
-                %li.divider-vertical
-                %li= link_to 'link', '#'
-                %li= link_to 'link', '#'
-                %li= link_to 'link', '#'
+              = create_menus
               .pull-right
                 %ul.nav.pull-right
                   %li.dropdown
@@ -29,7 +25,7 @@
                       %li.divider
                       %li= link_to "<i class='icon-off'></i> #{t('preferences.logout')}".html_safe, destroy_user_session_path, :method => :delete, :confirm => t('devise_forms.logout_confirm')
 
-
+      = show_flash(flash) if flash
       = yield 
     
     = render '/shared/footer'

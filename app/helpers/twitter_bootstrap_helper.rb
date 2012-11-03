@@ -13,6 +13,13 @@ module TwitterBootstrapHelper
         content_tag(:h3, flash.first.second)
       end
     end     
+  end
+
+  def alert_list_empty
+    content_tag(:div,:class => 'alert') do
+      content_tag(:button,'x',:class => 'close', data: { dismiss: "alert"})
+      content_tag(:h3, t('general.empty_list'))
+    end
   end  
 
 end

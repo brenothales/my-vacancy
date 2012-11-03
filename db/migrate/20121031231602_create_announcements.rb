@@ -7,7 +7,7 @@ class CreateAnnouncements < ActiveRecord::Migration
       t.references :city
       t.references :user
       t.references :category
-
+      t.boolean :situation, :default => true
       t.timestamps
     end
     add_index :announcements, :city_id

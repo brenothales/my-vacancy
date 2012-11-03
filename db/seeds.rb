@@ -11,7 +11,8 @@
 Role.create(:name => 'administrador')
 Role.create(:name => 'moderador')
 
-User.create(:name => 'Luiz Cezer', :email => 'lccezinha@gmail.com', :password => '123456', :role_id => Role.first.id, :situation => true)
+User.create(:name => 'Luiz Cezer', :email => 'lccezinha@gmail.com', :password => '123456', :role_id => Role.first.id, :situation => true, :phone => '(45) 9985-8693')
+User.create(:name => 'Cezer Filho', :email => 'lc_cezinha@hotmail.com', :password => '123456', :role_id => 2, :situation => true, :phone => '(45) 9988-7788')
 
 Category.create(:name => 'Aluguel', :situation => true)
 Category.create(:name => 'Compra', :situation => true)

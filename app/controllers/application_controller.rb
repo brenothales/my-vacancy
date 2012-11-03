@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   def load_order
     $order_by = params[:order_by].nil? ? 'id' : params[:order_by]

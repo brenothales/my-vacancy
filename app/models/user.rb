@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
       validation.validates :email
     end
     validation.validates :password
+    validation.validates :phone, :format => { :with => /\([0-9]{2}\)\s[0-9]{4}-[0-9]{4}/ }
   end
     
   validates_confirmation_of :password

@@ -1,0 +1,25 @@
+%h3= t('forms.announcement.index')
+%hr
+
+- unless @announcements.empty?
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th= t('dashboard.moderador.table.title')
+        %th= t('dashboard.moderador.table.created_at')
+        %th= t('dashboard.moderador.table.category')
+        %th= t('dashboard.moderador.table.actions')
+    %tbody
+      - @announcements.each do |announcement|
+        %tr
+          %td= announcement.name
+          %td= announcement.formated_created_at
+          %td= announcement.category.name
+          %td.actions
+            = link_to "<i class='icon-pencil'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top }
+            = link_to "<i class='icon-zoom-in'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
+            = show_active_desactive(announcement)
+      
+- else
+  = alert_list_empty

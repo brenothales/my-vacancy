@@ -1,5 +1,9 @@
 ptBR:
+
   general:
+    empty_list: Não há registros
+    errors: erros
+    find: encontrados
     admin_title: Painel Administrativo
     register: Registrar
     login: Logar
@@ -47,7 +51,8 @@ ptBR:
         name: Informe o Título
         content: Informe uma descrição sobre o anúncio
         value: Informe o valor        
-      
+        tags: Informe as tags do anúncio
+
     email: Seu email
     password: Sua Senha
     password_confirmation: Confirme sua senha 
@@ -55,13 +60,29 @@ ptBR:
     cel: Seu celular
     forgot_password_email: Digite seu email
 
+  hints:
+    announcements:
+      new:
+       tags: "as tags devem ser separadas por vírgulas. Exemplo : tag1, tag2, tag3, tag4, ..."
+
   preferences:
     welcome: Bem vindo
     my_profile: Meu perfil
     edit_profile: Editar perfil
     logout: Logout
     
-  cruds: 
+  cruds:
+    legends:
+      primary: Informações sobre o anúncio
+      secondary: Informações de localização
+      thirth: Informação de descrição
+      fourth: Informações adicionais
+
+    new: Cadastrar novo
+    list: Listar meus
+    submit: Confirmar
+    reset: Limpar campos
+ 
     notifications:
       create: "%{model} criada com sucesso"
       update: "%{model} atualizada com sucesso"
@@ -75,6 +96,13 @@ ptBR:
         show: visualiar detalhes do registro
         desactive: desativar registro
         active: ativar registro  
+
+  forms:
+    announcement:
+      new: Novo Anúncio
+      edit: Editar Anúncio
+      index: Lista de anúncios
+  
 
   tooltips:
     register: clique e faça o seu registro
@@ -148,5 +176,6 @@ ptBR:
         situation: Está ativo ?
         prompt_state: selecione o estado
         prompt_city: selecione a cidade
+        prompt_category: selecione a categoria
         phone: Telefone para Contato
         email: Email para Contato

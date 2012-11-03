@@ -1,0 +1,57 @@
+%h3= label_name
+%hr
+= simple_form_for [:admin, @announcement] do |f|
+  = render "/admin/shared/errors_messages", :resource => @announcement
+  .well
+    .row
+      .primary-informations.span5
+        %legend= t('cruds.legends.primary')
+
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.name')
+          = f.input :name, :placeholder => t('placeholders.announcements.new.name'), :label => false, :input_html => { :class => 'input-large' }
+                    
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.value')
+          = f.input :value, :placeholder => t('placeholders.announcements.new.value'), :label => false, :input_html => { :class => 'input-large' }
+                    
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.category_id')
+          = f.input :category_id, :collection => @categories, :label => false, :prompt => t('activerecord.attributes.announcement.prompt_category')
+
+      .third-informations.span5.offset1
+        %legend= t('cruds.legends.thirth')
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.content')
+          = f.input :content, :as => :text, :input_html => { :style => 'width:500px', :rows => 5 }, :label => false
+    
+    .row
+ 
+      .secondary-informations.span5
+        %legend= t('cruds.legends.secondary')
+
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.state')
+          = select_tag :state_id, options_from_collection_for_select(@states, :id, :name), :prompt => t('activerecord.attributes.announcement.prompt_state')                 
+         
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.city')
+          = f.input :city_id, :collection => [], :prompt => t('activerecord.attributes.announcement.prompt_city'), :label => false
+        
+                 
+      .fourth-informations.span5.offset1
+        %legend= t('cruds.legends.fourth')
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.email')
+          = text_field_tag :email, current_user.email, :disabled => :disabled, :label => false
+                   
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.phone')
+          = text_field_tag :phone, current_user.phone, :disabled => :disabled, :label => false
+    
+    %hr    
+  
+    .buttons
+      = f.submit t('cruds.submit'), :class => 'btn btn-success'
+      %button.btn.btn-warning.btn-small{ :type => :reset }= t('cruds.reset')
+

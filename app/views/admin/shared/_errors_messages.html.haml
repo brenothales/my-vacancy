@@ -1,0 +1,8 @@
+- if resource.errors.any?
+  .alert.alert-error
+    %button.close{ :type => :button, :data => { :dismiss => :alert } } X
+    %h3= "#{pluralize(resource.errors.count, t('general.errors'))} #{t('general.find')}"
+    %ul
+      = resource.errors.full_messages.each do |msg|
+        %li= msg
+
