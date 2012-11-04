@@ -6,3 +6,4 @@ $ ->
   $('#state_id').change ->
     state_id = $(this).val()
     $.get "/admin/announcements/find_cities_by_state", { state_id:state_id }
+

@@ -28,11 +28,6 @@ ActiveRecord::Schema.define(:version => 20121102193719) do
   add_index "announcements", ["city_id"], :name => "index_announcements_on_city_id"
   add_index "announcements", ["user_id"], :name => "index_announcements_on_user_id"
 
-  create_table "announcements_tags", :id => false, :force => true do |t|
-    t.integer "announcements_id"
-    t.integer "tags_id"
-  end
-
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 100
     t.boolean  "situation",                 :default => true

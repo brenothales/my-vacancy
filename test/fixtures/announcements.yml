@@ -1,17 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#coding : utf-8
 
 one:
-  name: MyString
-  content: MyText
-  value: MyString
-  city: 
-  user: 
-  phone: MyString
-
-two:
-  name: MyString
-  content: MyText
-  value: MyString
-  city: 
-  user: 
-  phone: MyString
+  name: Anúncio Um
+  content: hahahaha
+  value: 250.00
+  category_id: 1
+  city_id: 1
+  situation: true

@@ -6,7 +6,7 @@ class Ability
     if user.is_role?(:administrador)
       can :manage, :all    
     elsif user.is_role?(:moderador)
-      can :manage, Announcement          
+      can :manage, Announcement   #só deixa manipular os anúncios dele...       
     end
     can :create, User    
 

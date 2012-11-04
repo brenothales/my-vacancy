@@ -29,6 +29,11 @@ module ApplicationHelper
     announcement.situation ? link_to("<i class='icon-remove'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.desactive'), :data => { :placement => :top }) : link_to("<i class='icon-ok'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.active'), :data => { :placement => :top })
   end
 
+  def search_form_for_index(controller)
+    route_for_search = { :controller => "admin/#{controller}", :action => :index }
+    render :partial => "/admin/shared/form_search", :locals => { :route_for_search => route_for_search }
+  end
+
 
 
 end

@@ -6,7 +6,7 @@ class Admin::AnnouncementsController < ApplicationController
   before_filter :load_resources, :except => [:show, :destroy]
   
   def index
-    @announcements = Announcement.paginate(:per_page => $per_page,:page => params[:page])
+    @announcements = Announcement.announcements_by_user(current_user).search(params[:search]).paginate(:per_page => $per_page,:page => params[:page])
     respond_with @announcements,:location => admin_announcements_path
   end
 
@@ -16,7 +16,7 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   def new
-    @announcement = Announcement.new
+    @announcement = current_user.announcements.build
     respond_with @announcement, :location => new_admin_announcement_path
   end
  

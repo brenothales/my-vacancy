@@ -48,7 +48,10 @@
         .control-group
           %label.controls-label= t('activerecord.attributes.announcement.phone')
           = text_field_tag :phone, current_user.phone, :disabled => :disabled, :label => false
-    
+      
+        .control-group
+          %label.controls-label= t('activerecord.attributes.announcement.tags')
+          = f.input :tag_list, :placeholder => t('placeholders.announcements.new.tags'), :label => false, :hint => t('hints.announcements.new.tags')
     %hr    
   
     .buttons

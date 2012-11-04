@@ -46,6 +46,7 @@ ptBR:
     password_confirmation: Confirmação de senha
 
   placeholders:
+    search: Faça sua busca pelo título/nome
     announcements:
       new:
         name: Informe o Título
@@ -98,6 +99,8 @@ ptBR:
         active: ativar registro  
 
   forms:
+    search:
+      submit: Buscar
     announcement:
       new: Novo Anúncio
       edit: Editar Anúncio
@@ -179,3 +182,4 @@ ptBR:
         prompt_category: selecione a categoria
         phone: Telefone para Contato
         email: Email para Contato
+        created_at: Anúnciado em
