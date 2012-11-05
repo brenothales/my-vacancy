@@ -27,7 +27,7 @@
                       %li= link_to "<i class='icon-off'></i> #{t('preferences.logout')}".html_safe, destroy_user_session_path, :method => :delete, :confirm => t('devise_forms.logout_confirm')
 
       = show_flash(flash) if flash
-      %div{ :style => 'margin-top:10px', :data => { "pjax-container" => true } }
+      %div{ :style => 'margin-top:10px' }
         = yield 
     
     = render '/shared/footer'

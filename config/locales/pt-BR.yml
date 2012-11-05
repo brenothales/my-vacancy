@@ -126,6 +126,8 @@ ptBR:
 
   dashboard:
     moderador:
+      items:
+        first: Atalho para blabalblablablabla
       status:
         announcements: Meus Anúncios
         comments: Comentários

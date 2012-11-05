@@ -24,6 +24,9 @@ span.clear { clear:both; }
 ul.inline { list-style:none; margin:7px 0 0 0; }
 ul.inline li { display:inline; margin-right: 10px; }
 ul.inline h6, .select-per-page h6 { display:inline-block; margin-right:5px; }
+
+ul.dashboard-items { list-style:none; margin:7px 0 0 0; }
+ul.dashboard-items li { display:inline; margin-right: 10px; }
 /* NOVO ANÚNCIO */
 
 
