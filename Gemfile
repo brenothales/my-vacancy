@@ -15,7 +15,7 @@ gem 'haml-rails'
 gem "haml-bootstrap-rails"
 gem 'jquery-ui-bootstrap-rails'
 gem 'acts-as-taggable-on', '~> 2.3.1'
-gem 'rack-pjax'
+#gem 'rack-pjax'
 
 # Gems used only for assets and not required
 # in production environments by default.

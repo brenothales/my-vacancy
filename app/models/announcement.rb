@@ -14,8 +14,6 @@ class Announcement < ActiveRecord::Base
     v.validates :tag_list
   end
   
-  default_scope order('id DESC')
-
   scope :actived?, where(:situation => true)
   scope :for_rent, where(:category_id => 1)
   scope :for_buy, where(:category_id => 2)
@@ -27,11 +25,11 @@ class Announcement < ActiveRecord::Base
     created_at.strftime("%d/%m/%Y")  
   end
 
-  def self.search(search)
+  def self.search(search, order_by, ordem)
     unless search.nil? || search.empty?
-      where('name LIKE ?',"%#{search}%").order("#{$order_by} #{$ordem}")
+      where('name LIKE ?',"%#{search}%").order("#{order_by} #{ordem}")
     else
-      order("#{$order_by} #{$ordem}")
+      order("#{order_by} #{ordem}")
     end
   end
 

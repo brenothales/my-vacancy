@@ -7,5 +7,3 @@ $ ->
     state_id = $(this).val()
     $.get "/admin/announcements/find_cities_by_state", { state_id:state_id }
 
-  $('#search-button').pjax('[data-pjax-container]')
-  $('a.filter').pjax('[data-pjax-container]')

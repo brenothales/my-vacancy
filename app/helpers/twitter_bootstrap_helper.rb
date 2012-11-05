@@ -28,10 +28,10 @@ module TwitterBootstrapHelper
       
       link_to("#{t('forms.per_page.list')} <span class='caret'></span>".html_safe, 'javascript:void(0)', :class => 'btn dropdown-toggle',:data => {:toggle => 'dropdown'}) +
       content_tag(:ul, :class => 'dropdown-menu') do
-        content_tag(:li, link_to('3', {:per_page => 3})) +
-        content_tag(:li, link_to('5', {:per_page => 5})) +
-        content_tag(:li, link_to('10', {:per_page => 10})) +
-        content_tag(:li, link_to('20', {:per_page => 20}))
+        content_tag(:li, link_to('3', params.merge(:per_page => 3))) +
+        content_tag(:li, link_to('5', params.merge(:per_page => 5))) +
+        content_tag(:li, link_to('10', params.merge(:per_page => 10))) +
+        content_tag(:li, link_to('20', params.merge(:per_page => 20)))
       end
     end
   end

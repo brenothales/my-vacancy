@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.pjax
 //= require_tree .
 
 $(document).ready(function(){
@@ -21,8 +20,7 @@ $(document).ready(function(){
   setTimeout(function(){
 		$('.alert.alert-success, .alert.alert-error, .alert.alert-warning').slideUp('fast');
 	}, 5000)
-
-  $('.quick-filters li a').pjax('[data-pjax-container]')
+  
 
 });
 

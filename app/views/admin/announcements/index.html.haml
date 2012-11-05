@@ -6,27 +6,7 @@
   .pull-right= search_form_for_index 'announcements'
 
 - unless @announcements.empty?
-  %table.table.table-bordered.table-striped
-    %thead
-      %tr
-        %th= t('activerecord.attributes.announcement.name')
-        %th= t('activerecord.attributes.announcement.created_at')
-        %th= t('activerecord.attributes.announcement.category_id')
-        %th= t('activerecord.attributes.announcement.value')
-        %th= t('dashboard.moderador.table.actions')
-    %tbody
-      - @announcements.each do |announcement|
-        %tr
-          %td= announcement.name
-          %td= announcement.formated_created_at
-          %td= announcement.category.name
-          %td= announcement.value
-          %td.actions
-            = link_to "<i class='icon-pencil'></i>".html_safe, edit_admin_announcement_path(announcement), :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top }
-            = link_to "<i class='icon-zoom-in'></i>".html_safe, admin_announcement_path(announcement), :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
-            = show_active_desactive(announcement)
-  
-  = page_navigation_links @announcements   
+  #list-items= table_list :announcement, @announcements 
 - else
   = alert_list_empty
 

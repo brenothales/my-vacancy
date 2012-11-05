@@ -1,0 +1,25 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th
+        = t("activerecord.attributes.#{model_name}.name")
+        = show_ordenation :name
+      %th
+        = t('general.created_at')
+        = show_ordenation :created_at      
+      //%th= t('activerecord.attributes.announcement.category_id')
+      //%th= t('activerecord.attributes.announcement.value')
+      %th= t('dashboard.moderador.table.actions')
+  %tbody
+  - objetos.each do |objeto|
+    %tr
+      %td= objeto.name
+      %td= objeto.formated_created_at
+      //%td= objeto.category.name
+      //%td= objeto.value
+      %td.actions
+        = link_to "<i class='icon-pencil'></i>".html_safe, "#{base_route}#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top }
+        = link_to "<i class='icon-zoom-in'></i>".html_safe, "#{base_route}#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
+        = show_active_desactive(objeto)
+
+= page_navigation_links objetos  

@@ -5,9 +5,9 @@ class Admin::AnnouncementsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_resources, :except => [:show, :destroy]
   before_filter :load_announcements_by_category, :only => [:index, :announcements_by_category]
-  
+
   def index
-    @announcements = Announcement.announcements_by_user(current_user).search(params[:search]).paginate(:per_page => $per_page,:page => params[:page])
+    @announcements = Announcement.announcements_by_user(current_user).search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])
     respond_with @announcements,:location => admin_announcements_path
   end
 
@@ -48,7 +48,7 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   def announcements_by_category
-    @announcements = Announcement.by_category(params[:category_id]).paginate(:per_page => $per_page,:page => params[:page]) if params[:category_id]
+    @announcements = Announcement.by_category(params[:category_id]).order("#{order_by} #{ordem}").paginate(:per_page => params[:per_page],:page => params[:page]) if params[:category_id]
     render :action => :index
   end
   

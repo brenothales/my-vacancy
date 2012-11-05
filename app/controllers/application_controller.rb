@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   respond_to :html, :json, :js
+  helper_method :order_by, :ordem
 
-  before_filter :load_order
-
-  def load_order
-    $order_by = params[:order_by].nil? ? 'id' : params[:order_by]
-    $ordem    = params[:ordem].nil? ? 'DESC' : params[:ordem]
-    $per_page = params[:per_page].nil? ? 5 : params[:per_page]
+  def order_by 
+    model_name = controller_name.to_s.camelcase.singularize
+    model_name.constantize.column_names.include?(params[:order_by]) ? params[:order_by] : 'id'  
+  end
+  
+  def ordem
+    ['ASC', 'DESC'].include?(params[:ordem]) ? params[:ordem] : 'DESC'
   end
   
 private
