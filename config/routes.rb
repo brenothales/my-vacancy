@@ -6,10 +6,15 @@ MyVacancy::Application.routes.draw do
   #rotas devise
   devise_for :users
 
+  #rotas fixas
+ 
   namespace :admin do
     root :to => 'homes#index'
     resources :announcements do 
-      get 'find_cities_by_state', :on => :collection    
+      collection do
+        get 'find_cities_by_state' 
+        get 'announcements_by_category'
+      end  
     end
   end
 

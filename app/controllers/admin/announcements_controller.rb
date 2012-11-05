@@ -4,6 +4,7 @@ class Admin::AnnouncementsController < ApplicationController
   layout 'admin'
   before_filter :authenticate_user!
   before_filter :load_resources, :except => [:show, :destroy]
+  before_filter :load_announcements_by_category, :only => [:index, :announcements_by_category]
   
   def index
     @announcements = Announcement.announcements_by_user(current_user).search(params[:search]).paginate(:per_page => $per_page,:page => params[:page])
@@ -46,11 +47,22 @@ class Admin::AnnouncementsController < ApplicationController
     @cities = City.where(:state_id => params[:state_id]) unless params[:state_id].blank?
   end
 
+  def announcements_by_category
+    @announcements = Announcement.by_category(params[:category_id]).paginate(:per_page => $per_page,:page => params[:page]) if params[:category_id]
+    render :action => :index
+  end
+  
 protected
 
   def load_resources
     @states = State.order('name ASC')
     @categories = Category.order('name ASC')  
+  end
+
+  def load_announcements_by_category
+    @announcements_for_sale = @announcements.for_sale
+    @announcements_for_rent = @announcements.for_rent
+    @announcements_for_buy  = @announcements.for_buy  
   end
 
 end

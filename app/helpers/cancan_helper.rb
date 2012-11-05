@@ -15,7 +15,7 @@ module CancanHelper
   #create a menu in nav-menu
   def nav_menu(nav_class = 'nav', &block)
     content_tag(:ul, :class => nav_class) do 
-      capture(&block) #yield
+      block.call
     end
   end
 

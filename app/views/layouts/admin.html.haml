@@ -4,6 +4,7 @@
     %title= t('general.admin_title')
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application" 
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
     = csrf_meta_tags
  
   %body
@@ -26,7 +27,8 @@
                       %li= link_to "<i class='icon-off'></i> #{t('preferences.logout')}".html_safe, destroy_user_session_path, :method => :delete, :confirm => t('devise_forms.logout_confirm')
 
       = show_flash(flash) if flash
-      = yield 
+      %div{ :style => 'margin-top:10px', :data => { "pjax-container" => true } }
+        = yield 
     
     = render '/shared/footer'
 

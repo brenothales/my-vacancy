@@ -1,3 +1,4 @@
+#coding : utf-8
 module TwitterBootstrapHelper
   
   #show flash message on top with de message dãr
@@ -21,5 +22,18 @@ module TwitterBootstrapHelper
       content_tag(:h3, t('general.empty_list'))
     end
   end  
+
+  def itens_per_page
+    content_tag(:div, :class => 'btn-group', :style => 'display:inline-block;') do
+      
+      link_to("#{t('forms.per_page.list')} <span class='caret'></span>".html_safe, 'javascript:void(0)', :class => 'btn dropdown-toggle',:data => {:toggle => 'dropdown'}) +
+      content_tag(:ul, :class => 'dropdown-menu') do
+        content_tag(:li, link_to('3', {:per_page => 3})) +
+        content_tag(:li, link_to('5', {:per_page => 5})) +
+        content_tag(:li, link_to('10', {:per_page => 10})) +
+        content_tag(:li, link_to('20', {:per_page => 20}))
+      end
+    end
+  end
 
 end

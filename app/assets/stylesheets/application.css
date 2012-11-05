@@ -17,9 +17,13 @@
 div.comments p i { margin-right:10px; }
 td.actions a { margin-right:10px; }
 .about-system p { padding:10px 0;text-indent:20px; }
+.select-per-page { margin-left:5%; display:inline; }
 
 span.clear { clear:both; }
 
+ul.inline { list-style:none; margin:7px 0 0 0; }
+ul.inline li { display:inline; margin-right: 10px; }
+ul.inline h6, .select-per-page h6 { display:inline-block; margin-right:5px; }
 /* NOVO ANÚNCIO */
 
 

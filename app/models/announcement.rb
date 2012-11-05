@@ -18,8 +18,9 @@ class Announcement < ActiveRecord::Base
 
   scope :actived?, where(:situation => true)
   scope :for_rent, where(:category_id => 1)
-  scope :for_buy, where(:category_id => 1)
-  scope :for_sale, where(:category_id => 1)
+  scope :for_buy, where(:category_id => 2)
+  scope :for_sale, where(:category_id => 3)
+  scope :by_category, lambda { |category_id| where(:category_id => category_id) }
   scope :announcements_by_user, lambda { |user| where(:user_id => user.id) }
   
   def formated_created_at

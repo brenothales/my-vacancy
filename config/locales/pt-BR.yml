@@ -1,6 +1,7 @@
 ptBR:
 
   general:
+    no_permission: Usuário não tem permissão para essa ação !
     empty_list: Não há registros
     errors: erros
     find: encontrados
@@ -99,17 +100,29 @@ ptBR:
         active: ativar registro  
 
   forms:
+    per_page:
+      heading: Quantos itens por página
+      list: selecione quantos itens por página
     search:
       submit: Buscar
+      quick_search: Filtros rápidos
     announcement:
       new: Novo Anúncio
       edit: Editar Anúncio
       index: Lista de anúncios
+      buy: Compra
+      sale: Venda
+      rent: Aluguel
   
 
   tooltips:
+    filters:
+      rent: Filtre anúncios de alugel
+      sale: Filtre anúncios de venda
+      buy: Filtre anúncios de compra
     register: clique e faça o seu registro
     login: clique e faça o seu login
+  
 
   dashboard:
     moderador:

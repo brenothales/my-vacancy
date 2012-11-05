@@ -8,3 +8,31 @@ one:
   category_id: 1
   city_id: 1
   situation: true
+  user_id: 1
+
+two:
+  name: Anúncio Dois
+  content: hahahaha
+  value: 250.00
+  category_id: 1
+  city_id: 1
+  situation: true
+  user_id: 1
+
+three:
+  name: Anúncio Três
+  content: hahahaha
+  value: 250.00
+  category_id: 1
+  city_id: 1
+  situation: true
+  user_id: 1
+
+fourth:
+  name: Anúncio Qautro
+  content: hahahaha
+  value: 250.00
+  category_id: 1
+  city_id: 1
+  situation: true
+  user_id: 2

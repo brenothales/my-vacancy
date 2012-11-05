@@ -1,9 +1,11 @@
 %h3= t('forms.announcement.index')
 %hr
-%span.pull-right= search_form_for_index 'announcements'
+%span
+  .pull-left= quick_filters_by_category(@announcements_for_sale, @announcements_for_rent, @announcements_for_buy)
+  .select-per-page= itens_per_page
+  .pull-right= search_form_for_index 'announcements'
 
 - unless @announcements.empty?
-
   %table.table.table-bordered.table-striped
     %thead
       %tr

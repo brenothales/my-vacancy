@@ -34,6 +34,10 @@ module ApplicationHelper
     render :partial => "/admin/shared/form_search", :locals => { :route_for_search => route_for_search }
   end
 
+  def quick_filters_by_category(for_sale, for_rent, for_buy)
+    render :partial => "/admin/shared/filter_by_category", :locals => { :for_sale => for_sale, :for_rent => for_rent, :for_buy => for_buy }
+  end
+
 
 
 end

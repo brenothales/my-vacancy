@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   respond_to :html, :json, :js
 
+  before_filter :load_order
+
   def load_order
     $order_by = params[:order_by].nil? ? 'id' : params[:order_by]
     $ordem    = params[:ordem].nil? ? 'DESC' : params[:ordem]
@@ -19,6 +21,8 @@ private
   end
 
 
-
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to admin_root_url, :alert => t('general.no_permission')
+  end
 
 end
