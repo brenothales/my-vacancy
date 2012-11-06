@@ -1,1 +1,4 @@
 $("#announcement_<%= @announcement.id %>").html("<%= j render(@announcement) %>");
+$('.top-left').notify({
+  message: { text: 'Situação do anúncio atualizada com sucesso!' }
+}).show();

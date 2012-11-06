@@ -55,7 +55,7 @@ class Admin::AnnouncementsController < ApplicationController
   def update_situation 
     @announcement = Announcement.find(params[:id])
     @announcement.situation = !@announcement.situation
-    flash[:notice] = t('cruds.notifications.update', :model => "Anúncio") if @announcement.save
+    @announcement.save
     respond_with @announcement
   end
     
