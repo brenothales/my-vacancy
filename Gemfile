@@ -31,10 +31,10 @@ group :assets do
   gem 'will_paginate'
 end
 
-group :production do 
-  gem "pg"
-  gem 'unicorn'
-end
+#group :production do 
+#  gem "pg"
+#  gem 'unicorn'
+#end
 
 gem 'jquery-rails'
 

@@ -12,7 +12,7 @@
       %th= t('dashboard.moderador.table.actions')
   %tbody
   - objetos.each do |objeto|
-    %tr
+    %tr{ :id => "#{objeto.class.to_s.downcase.underscore}_#{objeto.id}" }
       %td= objeto.name
       %td= objeto.formated_created_at
       //%td= objeto.category.name

@@ -51,6 +51,14 @@ class Admin::AnnouncementsController < ApplicationController
     @announcements = Announcement.by_category(params[:category_id]).order("#{order_by} #{ordem}").paginate(:per_page => params[:per_page],:page => params[:page]) if params[:category_id]
     render :action => :index
   end
+
+  def update_situation 
+    @announcement = Announcement.find(params[:id])
+    @announcement.situation = !@announcement.situation
+    flash[:notice] = t('cruds.notifications.update', :model => "Anúncio") if @announcement.save
+    respond_with @announcement
+  end
+    
   
 protected
 

@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   def ordem
     ['ASC', 'DESC'].include?(params[:ordem]) ? params[:ordem] : 'DESC'
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to admin_root_url, :alert => t('general.no_permission')
+  end
   
 private
 
@@ -22,9 +26,6 @@ private
     admin_root_path
   end
 
-
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to admin_root_url, :alert => t('general.no_permission')
-  end
+  
 
 end

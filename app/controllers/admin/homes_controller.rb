@@ -6,5 +6,5 @@ class Admin::HomesController < ApplicationController
   def index
     @msg = "#{current_user.role.name} -> essa porra vai avisar novos comentários"
   end
-
+  
 end

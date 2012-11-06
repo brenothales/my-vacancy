@@ -32,7 +32,7 @@ module ApplicationHelper
   end
 
   def show_active_desactive(objeto)
-    objeto.situation ? link_to("<i class='icon-remove'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.desactive'), :data => { :placement => :top }) : link_to("<i class='icon-ok'></i>".html_safe, '#', :rel => 'tooltip', :title => t('cruds.table_list.tooltips.active'), :data => { :placement => :top }) if objeto.respond_to? :situation
+    objeto.situation ? link_to("<i class='icon-remove'></i>".html_safe, update_situation_admin_announcement_path(objeto), :method => :put, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.desactive'), :data => { :placement => :top }, :remote => true) : link_to("<i class='icon-ok'></i>".html_safe, update_situation_admin_announcement_path(objeto),:method => :put, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.active'), :data => { :placement => :top }, :remote => true) if objeto.respond_to? :situation
   end
 
   def search_form_for_index(controller)

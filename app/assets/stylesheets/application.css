@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+
+/* CSS ADICIONAIS */
 .alinhamento { float:right;padding:3px; }
 .notitication-alinhamento { margin-left:2px; }
 div.comments p i { margin-right:10px; }
@@ -27,7 +29,6 @@ ul.inline h6, .select-per-page h6 { display:inline-block; margin-right:5px; }
 
 ul.dashboard-items { list-style:none; margin:7px 0 0 0; }
 ul.dashboard-items li { display:inline; margin-right: 10px; }
-/* NOVO ANÚNCIO */
 
 
 /* Footer

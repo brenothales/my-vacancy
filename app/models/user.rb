@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   with_options :presence => true do |validation|
     validation.with_options :uniqueness => true do |validation|
       validation.validates :name
-      validation.validates :email
+      validation.validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
     end
     validation.validates :password
     validation.validates :phone, :format => { :with => /\([0-9]{2}\)\s[0-9]{4}-[0-9]{4}/ }

@@ -1,6 +1,6 @@
 class Ability
   include CanCan::Ability
-
+  # [:manage, :read, :create, :update, :destroy]
   def initialize(user)
     user ||= User.new
     if user.is_role?(:administrador)

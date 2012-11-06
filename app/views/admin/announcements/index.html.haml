@@ -1,4 +1,4 @@
-%h3= t('forms.announcement.index')
+%h3= "#{t('forms.announcement.index')} <span class='pull-right'>#{link_to("<i class='icon-plus'></i>  #{t('forms.announcement.new')}".html_safe, new_admin_announcement_path, :class => 'btn btn-success', :rel => :tooltip, :title => t('tooltips.announcements.new'), :data => { :placement => :left } )}</span> ".html_safe
 %hr
 %span
   .pull-left= quick_filters_by_category(@announcements_for_sale, @announcements_for_rent, @announcements_for_buy)

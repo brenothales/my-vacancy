@@ -7,10 +7,12 @@ MyVacancy::Application.routes.draw do
   devise_for :users
 
   #rotas fixas
- 
+  #match '/admin/homes/:id/update_status' => "admin/homes#update_status"  
+
   namespace :admin do
     root :to => 'homes#index'
-    resources :announcements do 
+    resources :announcements do
+      put 'update_situation', :on => :member 
       collection do
         get 'find_cities_by_state' 
         get 'announcements_by_category'
