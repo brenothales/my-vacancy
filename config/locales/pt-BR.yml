@@ -1,6 +1,10 @@
 ptBR:
 
   general:
+    show_page:
+      column: Coluna
+      value: Valor
+    actions: Ações
     no_permission: Usuário não tem permissão para essa ação !
     empty_list: Não há registros
     errors: erros
@@ -15,6 +19,7 @@ ptBR:
     new_user_fail: Erro ao criar o novo usúario
     created_at: Criado em 
     updated_at: Atualizado em
+    back: Voltar
     about_system:
       title_one: O que Nameless ?
       content_one: É um sistema onde pessoas podem se registrar e fazer seu anúncios, de maneira fácil. Podem ainda gerenciar seus interesses em outros anúncios, verificar pessoas interessadas em seus anúncios e realizar contato para fechar negócio
@@ -113,6 +118,9 @@ ptBR:
       buy: Compra
       sale: Venda
       rent: Aluguel
+      change: Troca
+      show: "Detalhes do anúncio > %{announcement}"
+
   
 
   tooltips:

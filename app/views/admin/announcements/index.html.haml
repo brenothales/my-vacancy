@@ -6,7 +6,7 @@
   .pull-right= search_form_for_index 'announcements'
 
 - unless @announcements.empty?
-  #list-items= table_list :announcement, @announcements 
+  #list-items= table_list :announcement, @announcements, [:value]
 - else
   = alert_list_empty
 

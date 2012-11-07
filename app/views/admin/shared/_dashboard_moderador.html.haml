@@ -2,7 +2,7 @@
   %h2 Dashboard
   %hr
     %ul.dashboard-items
-      %li= link_to "<i class='icon-plus'></i>  <i class='icon-book'></i> #{t('forms.announcement.new')}".html_safe, admin_announcements_path, :class => 'btn btn-large btn-success', :rel => 'tooltip', :title => t('dashboard.moderador.items.first'), :data => { :placement => :bottom }
+      %li= link_to "<i class='icon-plus'></i>  <i class='icon-book'></i> #{t('forms.announcement.new')}".html_safe, new_admin_announcement_path, :class => 'btn btn-large btn-success', :rel => 'tooltip', :title => t('dashboard.moderador.items.first'), :data => { :placement => :bottom }
       %li= link_to 'haha', '#', :class => 'btn btn-large btn-info', :rel => 'tooltip', :title => t('dashboard.moderador.items.first'), :data => { :placement => :top }
       %li= link_to 'haha', '#', :class => 'btn btn-large btn-info', :rel => 'tooltip', :title => t('dashboard.moderador.items.first'), :data => { :placement => :bottom }
       %li= link_to 'haha', '#', :class => 'btn btn-large btn-info', :rel => 'tooltip', :title => t('dashboard.moderador.items.first'), :data => { :placement => :top }

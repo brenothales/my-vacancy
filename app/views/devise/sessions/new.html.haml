@@ -11,10 +11,7 @@
     .form_inputs
       = f.button :submit, t('devise_forms.sign_in_button'), :class => 'btn btn-large btn-block btn-primary'
     %hr
-    .form_inputs
-      %label.checkbox
-        = f.input :remember_me, :label => t('devise_forms.remember_me'), :as => :boolean if devise_mapping.rememberable?
- 
+   
   = render "devise/shared/links"
 
 

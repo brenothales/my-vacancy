@@ -12,8 +12,8 @@ class Admin::AnnouncementsController < ApplicationController
   end
 
   def show
-    @announcement = Announcement.find(params[:id])
-    respond_with @announcement,:location => admin_announcement_path
+    @announcement = Announcement.find(params[:id]) 
+    respond_with @announcement, :location => admin_announcement_path
   end
 
   def new

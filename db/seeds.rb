@@ -17,6 +17,7 @@ User.create(:name => 'Cezer Filho', :email => 'lc_cezinha@hotmail.com', :passwor
 Category.create(:name => 'Aluguel', :situation => true)
 Category.create(:name => 'Compra', :situation => true)
 Category.create(:name => 'Venda', :situation => true)
+Category.create(:name => 'Troca', :situation => true)
 
 State.create(:name => 'Paraná', :uf => "PR")
 State.create(:name => 'São Paulo', :uf => "SP")

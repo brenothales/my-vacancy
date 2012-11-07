@@ -5,6 +5,7 @@
     = stylesheet_link_tag    "application", "notify/bootstrap-notify", :media => "all"
     = javascript_include_tag "application", "bootstrap-notify.js" 
     %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+    = yield :headers
     = csrf_meta_tags
  
   %body

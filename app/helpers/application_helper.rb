@@ -6,6 +6,14 @@ module ApplicationHelper
       link_to("&nbsp;<i class='icon-arrow-down'></i>".html_safe, params.merge(:order_by => field, :ordem => 'DESC' ))
     end
   end
+
+  #files in show pages
+  def show_field_value(model_name, column_name, column_value)
+    content_tag(:tr) do
+      content_tag(:td, t("activerecord.attributes.#{model_name}.#{column_name}")) +
+      content_tag(:td, column_value)
+    end
+  end
   
   def show_register_or_login
     content_tag(:ul, :class => 'nav pull-right') do 
@@ -43,17 +51,22 @@ module ApplicationHelper
   def quick_filters_by_category(for_sale, for_rent, for_buy)
     render :partial => "/admin/shared/filter_by_category", :locals => { :for_sale => for_sale, :for_rent => for_rent, :for_buy => for_buy }
   end
+  
+  def to_real(value)
+    number_to_currency(value, :unit => "R$ ", :separator => ".")  
+  end
 
-  def table_list(model_name, objetos)
+  def table_list(model_name, objetos, columns = [])
     #TURN IT MORE DYNAMIC
-    model_name = model_name.to_s
+    merge_columns = th_columns = []    
+    unless columns.empty?
+      merge_columns = columns
+      th_columns    = columns.map { |column| %[#{ t("activerecord.attributes.#{model_name}.#{column}")}  #{show_ordenation(column.to_sym)} ].html_safe  }
+    end
     base_route = "/admin/#{model_name.to_s.underscore.downcase.pluralize}/"
-    render :partial => "/admin/shared/table_list", :locals =>  { :objetos => objetos, :model_name => model_name, :base_route => base_route }  
+    render :partial => "/admin/shared/table_list", :locals =>  { :objetos => objetos, :model_name => model_name, :base_route => base_route, :th_columns => th_columns, :merge_columns => merge_columns }  
   end
   
-
-
-
   # não usados ainda
   def show_actions(objeto, show_all_menus = true, options = {})
     objeto_for_route = objeto.class.to_s.downcase.underscore.pluralize

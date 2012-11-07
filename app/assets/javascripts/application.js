@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.price-format.min
 //= require_tree .
 
 $(document).ready(function(){
@@ -21,6 +22,9 @@ $(document).ready(function(){
 		$('.alert.alert-success, .alert.alert-error, .alert.alert-warning').slideUp('fast');
 	}, 5000)
   
+  $('#back').click(function() {
+    history.back(-1);
+  })
 
 });
 

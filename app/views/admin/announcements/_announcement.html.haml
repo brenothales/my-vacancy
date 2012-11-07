@@ -1,7 +1,5 @@
 %td= @announcement.name
 %td= @announcement.formated_created_at
-//%td= objeto.category.name
-//%td= objeto.value
 %td.actions
   = link_to "<i class='icon-pencil'></i>".html_safe, edit_admin_announcement_path(@announcement), :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top }
   = link_to "<i class='icon-zoom-in'></i>".html_safe, admin_announcement_path(@announcement), :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }

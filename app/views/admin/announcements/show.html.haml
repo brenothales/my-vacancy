@@ -1,1 +1,18 @@
-= @announcement.name 
+%h3= "#{t('forms.announcement.show', :announcement => @announcement.name)} <span class='pull-right'> <button class='btn btn-warning' id='back'><i class='icon-arrow-left'></i> #{t('general.back')} </button>  #{link_to("<i class='icon-plus'></i>  #{t('forms.announcement.new')}".html_safe, new_admin_announcement_path, :class => 'btn btn-success', :rel => :tooltip, :title => t('tooltips.announcements.new'), :data => { :placement => :left } )}</span> ".html_safe
+%hr
+%table.table.table-bordered.table-striped#show_table
+  %thead
+    %tr
+      %th= t('general.show_page.column')
+      %th= t('general.show_page.value')
+  %tbody
+    %tr
+      = show_field_value(:announcement, :name, @announcement.name)
+      = show_field_value(:announcement, :value, to_real(@announcement.value))
+      = show_field_value(:announcement, :category_id, @announcement.category.name)
+      = show_field_value(:announcement, :content, @announcement.content)
+      = show_field_value(:announcement, :city, @announcement.city.name)
+      = show_field_value(:announcement, :tags, @announcement.tag_list)
+      = show_field_value(:announcement, :phone, @announcement.user.phone)
+      = show_field_value(:announcement, :email, @announcement.user.phone)
+
