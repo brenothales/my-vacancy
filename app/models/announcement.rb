@@ -29,7 +29,7 @@ class Announcement < ActiveRecord::Base
 
   def self.search(search, order_by, ordem)
     unless search.nil? || search.empty?
-      where('name LIKE ?',"%#{search}%").order("#{order_by} #{ordem}")
+      joins(:user).where('announcements.name LIKE :search OR announcements.content LIKE :search users.name LIKE :search', :search => "%#{search}%").order("#{order_by} #{ordem}")
     else
       order("#{order_by} #{ordem}")
     end

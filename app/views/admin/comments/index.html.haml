@@ -3,11 +3,14 @@
 %span
   .select-per-page= itens_per_page
   .pull-right= search_form_for_index 'comments'
-
+%hr
 - unless @comments_unread.empty?
-  #list-items= table_list :comments, @comments_unread
+  %h3= t('cruds.table_list.comments.unread')
+  #list-items= table_list :comments, @comments_unread, [:email, :content, :announcement_id]
 
 - unless @comments_read.empty?
-  #list-items= table_list :comments, @comments_read
+  %hr
+  %h3= t('cruds.table_list.comments.read')
+  #list-items= table_list :comments, @comments_read, [:email, :content, :announcement_id]
 
 

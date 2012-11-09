@@ -15,9 +15,15 @@
       %td= objeto.name
       - unless merge_columns.empty?
         - merge_columns.each do |column|
-          %td= column.eql?(:value) ? to_real(objeto.attributes[column.to_s]) : objeto.attributes[column.to_s]
+          %td
+            - if column.eql?(:value)
+              = to_real(objeto.attributes[column.to_s])
+            - elsif column.eql?(:announcement_id)
+              = link_to objeto.announcement.name, admin_announcement_path(objeto), :rel => :tooltip, :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
+            - else 
+              = objeto.attributes[column.to_s]
 
-      %td.actions{ :id => objeto.id }
+      %td.actions{ :id => objeto.id }   
         = link_to "<i class='icon-pencil'></i>".html_safe, "#{base_route}#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top }
         = link_to "<i class='icon-zoom-in'></i>".html_safe, "#{base_route}#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
         = show_active_desactive(objeto)

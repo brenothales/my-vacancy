@@ -96,9 +96,9 @@ module ApplicationHelper
     objeto_for_route = objeto.class.to_s.downcase.underscore.pluralize
     html = %()
     if show_all_menus
-      html << link_to("<i class=\"icon-list-alt\"></i> Detalhes".html_safe,"/admin/#{objeto_for_route}/#{objeto.id}",:class => 'btn')
-      html << link_to("<i class=\"icon-refresh\"></i> Editar".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}/edit",:class => 'btn')
-      html << link_to("<i class=\"icon-trash\"></i> Excluir".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", method: :delete, data: { confirm: 'Deseja Realmente excluir ?' },:class => 'btn')
+      html << link_to("<i class='icon-pencil'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top })
+      html << link_to("<i class='icon-zoom-in'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top })
+      html << link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}#{objeto.id}", :method => :delete, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top })
     else
       actions = options[:actions] unless options[:actions].nil?
       if actions.kind_of? Array

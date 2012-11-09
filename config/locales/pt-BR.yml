@@ -56,7 +56,7 @@ ptBR:
     password_confirmation: Confirmação de senha
 
   placeholders:
-    search: Faça sua busca pelo título/nome
+    search: Faça sua busca
     announcements:
       new:
         name: Informe o Título
@@ -90,7 +90,7 @@ ptBR:
       fourth: Informações adicionais
 
     new: Cadastrar novo
-    list: Listar meus
+    list: Listar
     submit: Confirmar
     reset: Limpar campos
  
@@ -100,10 +100,11 @@ ptBR:
       destroy: "%{model} apagada com sucesso"
     table_list:
       comments:
+        unread: Comentários não lidos
+        read: Comentários lidos
         accept: Aprovar
         deny: Desaprovar
       tooltips:
-        
         edit: editar registro
         show: visualiar detalhes do registro
         desactive: desativar registro
@@ -209,6 +210,10 @@ ptBR:
         one: Usuário
         other: Usuários
     attributes:
+      comments:
+        name: Nome
+        announcement_id: Para o anúncio
+        content: Descrição
       user:
         name: Nome
         phone: Telefone

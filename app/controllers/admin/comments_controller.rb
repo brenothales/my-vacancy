@@ -5,8 +5,8 @@ class Admin::CommentsController < ApplicationController
 
 
   def index
-    @comments_unread = Comment.unread(current_user).paginate(:per_page => 5, :page => params[:page])
-    @comments_read   = Comment.read(current_user).paginate(:per_page => 5, :page => params[:page])
+    @comments_unread = Comment.unread(current_user).search(params[:search], order_by, ordem).paginate(:per_page => 5, :page => params[:page])
+    @comments_read   = Comment.read(current_user).search(params[:search], order_by, ordem).paginate(:per_page => 5, :page => params[:page])
     respond_with @comments_unread, @comments_read, :location => admin_comments_path
   end
 
