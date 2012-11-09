@@ -35,7 +35,7 @@ module ApplicationHelper
 
   def create_menus
     html = %()
-    Util.list_models.each { |model| html << render('admin/shared/menu_item', :model_for_menu => model) }
+    Util.list_models.each { |modelo| html << render('admin/shared/menu_item', :model_for_menu => modelo.first.camelize) }
     html.html_safe
   end
 
@@ -77,6 +77,20 @@ module ApplicationHelper
     render :partial => "/admin/shared/table_list", :locals =>  { :objetos => objetos, :model_name => model_name, :base_route => base_route, :th_columns => th_columns, :merge_columns => merge_columns }  
   end
   
+  def list_new_comments(has_new_comments)
+    html = %()
+    unless has_new_comments.empty?
+      has_new_comments.each do |comment|
+        url = admin_comments_path
+        html << content_tag(:div, :class => 'alert alert-info') do
+          content_tag(:button,'x',:class => 'close', data: { dismiss: "alert"}) +
+          "<i class='icon-eye-open'></i> #{t('dashboard.moderador.has_new_comments', :announcement => comment.announcement.name)}, #{link_to("<strong>Veja aqui</strong>".html_safe, url)}".html_safe
+        end
+      end
+    end
+    html.html_safe
+  end
+
   # não usados ainda
   def show_actions(objeto, show_all_menus = true, options = {})
     objeto_for_route = objeto.class.to_s.downcase.underscore.pluralize

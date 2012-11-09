@@ -1,0 +1,11 @@
+announcement:
+  model: announcement 
+  order: 1
+comment:
+  model: comment
+  order: 2
+user:
+  model: user
+  order: 3
+  
+  

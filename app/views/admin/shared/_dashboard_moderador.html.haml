@@ -1,3 +1,5 @@
+= list_new_comments(@has_new_comments)
+
 .dashboard
   %h2 Dashboard
   %hr
@@ -10,7 +12,7 @@
         %li= link_to "<i class='icon-check'></i>  <i class='icon-comment'></i> #{t('forms.comments.check')}".html_safe, edit_admin_user_path(current_user), :class => 'btn btn-large btn-warning shortcut-btn', :rel => 'tooltip', :title => t('dashboard.moderador.items.third'), :data => { :placement => :top }
         %li= link_to "<i class='icon-check'></i>  <i class='icon-briefcase'></i> #{t('forms.proposals.check')}".html_safe, edit_admin_user_path(current_user), :class => 'btn btn-large btn-primary shortcut-btn', :rel => 'tooltip', :title => t('dashboard.moderador.items.fourth'), :data => { :placement => :top }        
   
-    .span5.offset1.well
+    .span5.well.offset1
       %ul.nav.nav-list
         %li.nav-header Status
         %li= link_to "#{t('dashboard.moderador.status.announcements')}<span class='alinhamento label label-info'>#{@announcements_size}</span>".html_safe, admin_announcements_path, :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
@@ -30,7 +32,7 @@
         %li.divider
         %li= link_to t('dashboard.moderador.links.announcements_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.moderador.links.announcements_all'), :data => { :placement => :top }
 
-    .span5.offset1.well
+    .span5.well.offset1
       %ul.nav.nav-list
         %li.nav-header= t('dashboard.moderador.items.last_proposals')
         %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 

@@ -26,6 +26,7 @@ module CancanHelper
     icon = case menu_label
     when 'announcement' ; "<i class='icon-book'></i>"
     when 'user' ; "<i class='icon-user'></i>"
+    when 'comment' ; "<i class='icon-comment'></i>"
     end        
 
     menu_label = t("activerecord.models.#{menu_label}.other")

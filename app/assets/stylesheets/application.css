@@ -19,7 +19,8 @@
 div.comments p i { margin-right:10px; }
 td.actions a { margin-right:10px; }
 .about-system p { padding:10px 0;text-indent:20px; }
-.select-per-page { margin-left:5%; display:inline; }
+.select-per-page { display:inline; }
+.quick_filters { margin-right:25px; }
 
 span.clear { clear:both; }
 
@@ -33,6 +34,14 @@ ul.dashboard-items li { display:inline; margin-right: 10px; }
 #show_table thead th, #show_table tbody td { width:50%; }
 
 .shortcut-btn { width:40%; float:left; margin:5px; }
+
+.inlineblock { display:inline-block; }
+
+
+
+
+
+
 
 /* Footer
 -------------------------------------------------- */

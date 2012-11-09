@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102193719) do
+ActiveRecord::Schema.define(:version => 20121109121827) do
 
   create_table "announcements", :force => true do |t|
     t.string   "name",        :limit => 100
     t.text     "content"
-    t.decimal  "value",                      :precision => 10, :scale => 2
+    t.string   "value",       :limit => 50
     t.integer  "city_id"
     t.integer  "user_id"
     t.integer  "category_id"
-    t.boolean  "situation",                                                 :default => true
-    t.datetime "created_at",                                                                  :null => false
-    t.datetime "updated_at",                                                                  :null => false
+    t.boolean  "situation",                  :default => true
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   add_index "announcements", ["city_id"], :name => "index_announcements_on_city_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20121102193719) do
     t.integer  "state_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.integer  "announcement_id"
+    t.boolean  "situation",       :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "roles", :force => true do |t|

@@ -1,0 +1,13 @@
+%h3= "#{t('forms.comments.index')} "
+%hr
+%span
+  .select-per-page= itens_per_page
+  .pull-right= search_form_for_index 'comments'
+
+- unless @comments_unread.empty?
+  #list-items= table_list :comments, @comments_unread
+
+- unless @comments_read.empty?
+  #list-items= table_list :comments, @comments_read
+
+

@@ -1,6 +1,7 @@
 ptBR:
 
   general:
+    total_registers: total de registros  
     show_page:
       column: Coluna
       value: Valor
@@ -131,9 +132,10 @@ ptBR:
       index: Lista de usuários
       show: "Detalhes do usuário > %{user}"
     comments:
-      check: Seus comentários
+      index: Lista de comentários
+      check: Seus Comentários
     proposals:
-      check: Suas Propostas
+      check: Propostas Recebidas
 
   
 
@@ -154,6 +156,7 @@ ptBR:
     proposals_received: veja suas propostas recebidas%li= link_to "#{t('dashboard.moderador.status.comments')}<span class='alinhamento label label-info'>3</span>".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
     shortcut: Atalhos
     moderador:
+      has_new_comments: "O anúncio : <strong>%{announcement}</strong>, possui novos comentários"
       links:
         announcements_all: veja todos os anúncios
         proposals_all: veja todas as propostas
@@ -197,6 +200,8 @@ ptBR:
         odd: "precisa ser ímpar"
         even: "precisa ser par"
     models:
+      comment:
+        other: Comentários
       announcement:
         one: Anúncio
         other: Anúncios

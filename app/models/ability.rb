@@ -8,6 +8,7 @@ class Ability
     elsif user.is_role?(:moderador)
       can :manage, Announcement   #só deixa manipular os anúncios dele...       
       can :manage, User
+      can :manage, Comment
     end   
 
     # Define abilities for the passed in user here. For example:

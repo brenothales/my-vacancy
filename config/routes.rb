@@ -11,16 +11,22 @@ MyVacancy::Application.routes.draw do
 
   namespace :admin do
     root :to => 'homes#index'
+    resources :comments, :only => [:index, :show, :destroy]
+
     resources :users, :except => :new do 
       put 'update_situation', :on => :member 
     end
+
     resources :announcements do
       put 'update_situation', :on => :member 
+
       collection do
         get 'find_cities_by_state' 
         get 'announcements_by_category'
       end  
+
     end
+
   end
 
   # The priority is based upon order of creation:

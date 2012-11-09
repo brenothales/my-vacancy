@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :phone, :email, :password, :password_confirmation, :remember_me, :role_id, :situation
   # attr_accessible :title, :body
   
+  scope :actived?, where(:situation => true)
+ 
   def is_role?(role)
     self.role.name.to_sym.eql?(role)
   end

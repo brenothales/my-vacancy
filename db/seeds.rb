@@ -25,3 +25,8 @@ State.create(:name => 'São Paulo', :uf => "SP")
 City.create(:name => "Medianeira", :state_id => 1)
 City.create(:name => 'Foz do Iguaçu', :state_id => 1)
 City.create(:name => 'São Paulo', :state_id => 2)
+
+Announcement.create(:name => 'Anuncio muito bom', :value => '800,00', :category_id => 1, :city_id => 1, :content => 'descricao sobre o anucio', :user_id => 2)
+Announcement.create(:name => 'Anuncio ruim pra caralho', :value => '100,00', :category_id => 3, :city_id => 2, :content => 'descricao sobre o anucio', :user_id => 2)
+
+Comment.create(:name => 'Rafel Tibola', :email => 'tibola@gmail.com', :content => 'ese e o meu comentario', :announcement_id => 1)
