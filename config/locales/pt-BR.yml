@@ -17,6 +17,7 @@ ptBR:
     application_name: Nameless Project
     new_user: Usuário registrado com sucesso !
     new_user_fail: Erro ao criar o novo usúario
+    edit_my_profile: Editar meu perfil
     created_at: Criado em 
     updated_at: Atualizado em
     back: Voltar
@@ -30,6 +31,7 @@ ptBR:
 
   page:
     titles:
+      default: Meu Anúnio Fácil !
       register: Faça seu registro
       login: Faça seu login
       forgot_password: Esqueceu sua senha? 
@@ -43,6 +45,7 @@ ptBR:
     forgot_password: Esqueceu sua senha ?
     send_instructions: Enviar instruções para nova senha
     logout_confirm: Deseja realmente sair?
+    update_values: Atualizar dados
     
   labels:
     name: Nome Completo
@@ -99,10 +102,13 @@ ptBR:
         accept: Aprovar
         deny: Desaprovar
       tooltips:
+        
         edit: editar registro
         show: visualiar detalhes do registro
         desactive: desativar registro
         active: ativar registro  
+        delete: apagar registro
+        confirm: Realmente apagar o registro?
 
   forms:
     per_page:
@@ -120,6 +126,14 @@ ptBR:
       rent: Aluguel
       change: Troca
       show: "Detalhes do anúncio > %{announcement}"
+    user:
+      edit: Edite seu perfil
+      index: Lista de usuários
+      show: "Detalhes do usuário > %{user}"
+    comments:
+      check: Seus comentários
+    proposals:
+      check: Suas Propostas
 
   
 
@@ -135,9 +149,25 @@ ptBR:
   
 
   dashboard:
+    announcements: veja todos os seus anúncios
+    comments_received: veja seus comentários recebidos
+    proposals_received: veja suas propostas recebidas%li= link_to "#{t('dashboard.moderador.status.comments')}<span class='alinhamento label label-info'>3</span>".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+    shortcut: Atalhos
     moderador:
+      links:
+        announcements_all: veja todos os anúncios
+        proposals_all: veja todas as propostas
+      status:
+        announcements: Seus anúncios
+        comments: Comentários recebidos
+        proposal: Propostas Recebidas
       items:
         first: Atalho para cadastro de novo anúncio
+        second: Edite seu perfil
+        third: Check seus comentários
+        fourth: Check suas propostas recebidas
+        last_announcements: Seus últimos anúncios
+        last_proposals: Últimas propostas recebidas
 
   activerecord:
     errors:
@@ -170,7 +200,13 @@ ptBR:
       announcement:
         one: Anúncio
         other: Anúncios
+      user:
+        one: Usuário
+        other: Usuários
     attributes:
+      user:
+        name: Nome
+        phone: Telefone
       announcement:
         name: Título
         content: Descrição

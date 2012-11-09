@@ -4,11 +4,11 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.is_role?(:administrador)
-      can :manage, :all    
+      can :manage, :all
     elsif user.is_role?(:moderador)
       can :manage, Announcement   #só deixa manipular os anúncios dele...       
-    end
-    can :create, User    
+      can :manage, User
+    end   
 
     # Define abilities for the passed in user here. For example:
     #

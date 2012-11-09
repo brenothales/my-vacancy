@@ -1,9 +1,7 @@
-= content_for :headers do 
-  %script{ :type => "text/javascript", :scr => 'jquery.price-format.min' } 
-
 %h3= label_name
 %hr
 = simple_form_for [:admin, @announcement] do |f|
+  = f.input :user_id, :as => :hidden, :value => current_user
   = render "/admin/shared/errors_messages", :resource => @announcement
   .well
     .row

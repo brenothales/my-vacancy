@@ -7,10 +7,13 @@ MyVacancy::Application.routes.draw do
   devise_for :users
 
   #rotas fixas
-  #match '/admin/homes/:id/update_status' => "admin/homes#update_status"  
+  match '/admin/homes/update_situation' => "admin/homes#update_situation"  
 
   namespace :admin do
     root :to => 'homes#index'
+    resources :users, :except => :new do 
+      put 'update_situation', :on => :member 
+    end
     resources :announcements do
       put 'update_situation', :on => :member 
       collection do

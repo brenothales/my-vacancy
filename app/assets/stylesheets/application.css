@@ -32,6 +32,8 @@ ul.dashboard-items li { display:inline; margin-right: 10px; }
 
 #show_table thead th, #show_table tbody td { width:50%; }
 
+.shortcut-btn { width:40%; float:left; margin:5px; }
+
 /* Footer
 -------------------------------------------------- */
 

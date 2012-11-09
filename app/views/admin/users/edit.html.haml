@@ -1,0 +1,16 @@
+%h3= t('forms.user.edit')
+%hr
+= simple_form_for [:admin, @user] do |f|
+  = render "/admin/shared/errors_messages", :resource => @user
+  .well
+    .form_inputs
+      = f.input :name, :label => t('labels.name'), :required => true, :autofocus => true, :placeholder => t("placeholders.name"), :input_html => { :class => 'span4' }
+      = f.input :email, :label => t('labels.email'), :required => true, :autofocus => true, :placeholder => t("placeholders.email"), :input_html => { :class => 'span4' }
+      = f.input :password, :label =>  t('labels.password'), :required => true, :placeholder => t("placeholders.password"), :input_html => { :class => 'span4' }
+      = f.input :password_confirmation, :label =>  t('labels.password_confirmation'), :required => false, :placeholder => t("placeholders.password_confirmation"), :input_html => { :class => 'span4' }
+      = f.input :phone, :label =>  t('labels.phone'), :required => true, :autofocus => true, :placeholder => t("placeholders.cel"), :input_html => { :class => 'span4' }, :hint => "<small>Exemplo : (XX) XXXX-XXXX</small>".html_safe
+    .form_inputs
+      = f.button :submit, t('devise_forms.update_values'), :class => 'btn btn-success'
+      %button.btn.btn-warning.btn-small{ :type => :reset }= t('cruds.reset')
+    %hr
+

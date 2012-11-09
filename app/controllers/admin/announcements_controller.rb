@@ -7,7 +7,11 @@ class Admin::AnnouncementsController < ApplicationController
   before_filter :load_announcements_by_category, :only => [:index, :announcements_by_category]
 
   def index
-    @announcements = Announcement.announcements_by_user(current_user).search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])
+    if current_user.is_role? :administrador
+      @announcements = Announcement.search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])    
+    else
+      @announcements = Announcement.announcements_by_user(current_user).search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])    
+    end
     respond_with @announcements,:location => admin_announcements_path
   end
 
@@ -54,7 +58,7 @@ class Admin::AnnouncementsController < ApplicationController
 
   def update_situation 
     @announcement = Announcement.find(params[:id])
-    @announcement.situation = !@announcement.situation
+    @announcement.situation = @announcement.situation ? false : true  
     @announcement.save
     respond_with @announcement
   end
@@ -68,9 +72,15 @@ protected
   end
 
   def load_announcements_by_category
-    @announcements_for_sale = @announcements.for_sale
-    @announcements_for_rent = @announcements.for_rent
-    @announcements_for_buy  = @announcements.for_buy  
+    if current_user.is_role? :administrador
+      @announcements_for_sale = @announcements.for_sale
+      @announcements_for_rent = @announcements.for_rent
+      @announcements_for_buy  = @announcements.for_buy      
+    else
+      @announcements_for_sale = @announcements.announcements_by_user(current_user).for_sale
+      @announcements_for_rent = @announcements.announcements_by_user(current_user).for_rent
+      @announcements_for_buy  = @announcements.announcements_by_user(current_user).for_buy      
+    end
   end
 
 end

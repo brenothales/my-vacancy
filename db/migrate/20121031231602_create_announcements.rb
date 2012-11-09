@@ -3,7 +3,7 @@ class CreateAnnouncements < ActiveRecord::Migration
     create_table :announcements do |t|
       t.string :name, :limit => 100
       t.text :content
-      t.decimal :value, :precision => 10, :scale => 2
+      t.string :value
       t.references :city
       t.references :user
       t.references :category

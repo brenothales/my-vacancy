@@ -1,9 +1,26 @@
 .alert.alert-info
   %button.close{ :data => { :dismiss => :alert } } X
-  %h3= @msg
+  %h3 aviso de new user
 
-.dashboard
-  = link_to 'haha', '#', :class => 'btn btn-larg btn-info'
-  = link_to 'haha', '#', :class => 'btn btn-larg btn-info'
-  = link_to 'haha', '#', :class => 'btn btn-larg btn-info'
-  = link_to 'haha', '#', :class => 'btn btn-larg btn-info'
+.row
+  .span5.well
+    %ul.nav.nav-list
+      %li.nav-header= t('dashboard.moderador.items.last_announcements')
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, admin_announcements_path, :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top }
+      %li.divider
+      %li= link_to t('dashboard.moderador.links.announcements_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.moderador.links.announcements_all'), :data => { :placement => :top }
+
+  .span5.offset1.well
+    %ul.nav.nav-list
+      %li.nav-header= t('dashboard.moderador.items.last_proposals')
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
+      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
+      %li.divider
+      %li= link_to "#{t('dashboard.moderador.links.proposals_all')}"

@@ -1,4 +1,6 @@
 - meta_title "#{t('general.application_name')} > #{t('page.titles.register')}"
+- content_for :headers do 
+  %script{ :type => "text/javascript", :scr => 'jquery.mask-input.min' } 
 
 .well.span5.about-system.offset1
   %div

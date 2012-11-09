@@ -1,0 +1,13 @@
+%h3= "#{t('forms.user.show', :user => @user.name)} <span class='pull-right'> <button class='btn btn-warning' id='back'><i class='icon-arrow-left'></i> #{t('general.back')} </button>".html_safe
+%hr
+%table.table.table-bordered.table-striped#show_table
+  %thead
+    %tr
+      %th= t('general.show_page.column')
+      %th= t('general.show_page.value')
+  %tbody
+    %tr
+      = show_field_value(:user, :name, @user.name)
+      = show_field_value(:user, :email, @user.email)
+      = show_field_value(:user, :phone, @user.phone)
+

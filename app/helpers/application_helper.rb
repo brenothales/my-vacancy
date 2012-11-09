@@ -40,7 +40,18 @@ module ApplicationHelper
   end
 
   def show_active_desactive(objeto)
-    objeto.situation ? link_to("<i class='icon-remove'></i>".html_safe, update_situation_admin_announcement_path(objeto), :method => :put, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.desactive'), :data => { :placement => :top }, :remote => true) : link_to("<i class='icon-ok'></i>".html_safe, update_situation_admin_announcement_path(objeto),:method => :put, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.active'), :data => { :placement => :top }, :remote => true) if objeto.respond_to? :situation
+    #"/admin/#{controller_name}/#{objeto.id}/update_situation"
+    if objeto.situation
+      link_to("<i class='icon-remove'></i>".html_safe, 
+              "/admin/#{controller_name}/#{objeto.id}/update_situation",
+              :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.desactive'), 
+              :data => { :placement => :top }, :remote => true) 
+    else
+      link_to("<i class='icon-ok'></i>".html_safe, 
+              "/admin/#{controller_name}/#{objeto.id}/update_situation", 
+              :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.active'), 
+              :data => { :placement => :top }, :remote => true)
+    end
   end
 
   def search_form_for_index(controller)
@@ -57,7 +68,6 @@ module ApplicationHelper
   end
 
   def table_list(model_name, objetos, columns = [])
-    #TURN IT MORE DYNAMIC
     merge_columns = th_columns = []    
     unless columns.empty?
       merge_columns = columns

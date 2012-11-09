@@ -26,5 +26,7 @@ $(document).ready(function(){
     history.back(-1);
   })
 
+  $('#user_phone').mask('(99) 9999-9999');
+
 });
 

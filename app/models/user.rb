@@ -27,6 +27,14 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   after_create :notification_user
 
+  def self.search(search, order_by, ordem)
+    unless search.nil? || search.empty?
+      where('name LIKE ?',"%#{search}%").order("#{order_by} #{ordem}")
+    else
+      order("#{order_by} #{ordem}")
+    end
+  end
+
 protected
   
   def notification_user

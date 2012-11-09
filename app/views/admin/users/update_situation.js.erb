@@ -1,0 +1,4 @@
+$("#user_<%= @user.id %>").html("<%= j render(@user) %>");
+$('.top-left').notify({
+  message: { text: 'Situação do usuário atualizada com sucesso!' }
+}).show();

@@ -4,7 +4,12 @@ class Admin::HomesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @msg = "#{current_user.role.name} -> essa porra vai avisar novos comentários"
+    if current_user.is_role? :administrador
+      #ultimos 5 anuncios
+      #ultimos 5 usuarios
+    elsif current_user.is_role? :moderador
+      @announcements_size = Announcement.announcements_by_user(current_user).count 
+    end 
   end
   
 end

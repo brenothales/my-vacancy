@@ -1,0 +1,13 @@
+%h3= t('forms.user.index')
+%hr
+%span
+  .pull-left
+  .select-per-page= itens_per_page
+  .pull-right= search_form_for_index 'users'
+
+- unless @users.empty?
+  #list-items= table_list :user, @users
+- else
+  = alert_list_empty
+
+
