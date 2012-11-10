@@ -18,7 +18,7 @@ module ApplicationHelper
   def show_register_or_login
     content_tag(:ul, :class => 'nav pull-right') do 
       if user_signed_in?
-        content_tag(:li, link_to("<strong>#{t('general.welcome')} : #{current_user.name}</strong>".html_safe, 'javascript:void(0)' , :title => t('general.logged_user', :rel => 'tooltip', :data => { :placement => :bottom }) )) +
+        content_tag(:li, link_to("<strong>#{t('general.welcome')} : #{current_user.name}</strong>".html_safe, admin_root_path , :title => t('general.logged_user', :rel => 'tooltip', :data => { :placement => :bottom }) )) +
         content_tag(:li, '' ,:class => 'divider-vertical') +
         content_tag(:li, link_to("Logout  <i class='icon-off'></i>".html_safe, destroy_user_session_path, :method => :delete, :confirm => t('devise_forms.logout_confirm')))
       else
@@ -67,14 +67,14 @@ module ApplicationHelper
     number_to_currency(value, :unit => "R$ ", :separator => ".")  
   end
 
-  def table_list(model_name, objetos, columns = [])
+  def table_list(model_name, objetos, columns = [], custom_actions = [])
     merge_columns = th_columns = []    
     unless columns.empty?
       merge_columns = columns
       th_columns    = columns.map { |column| %[#{ t("activerecord.attributes.#{model_name}.#{column}")}  #{show_ordenation(column.to_sym)} ].html_safe  }
     end
     base_route = "/admin/#{model_name.to_s.underscore.downcase.pluralize}/"
-    render :partial => "/admin/shared/table_list", :locals =>  { :objetos => objetos, :model_name => model_name, :base_route => base_route, :th_columns => th_columns, :merge_columns => merge_columns }  
+    render :partial => "/admin/shared/table_list", :locals =>  { :objetos => objetos, :model_name => model_name, :base_route => base_route, :th_columns => th_columns, :merge_columns => merge_columns, :custom_actions => custom_actions }  
   end
   
   def list_new_comments(has_new_comments)
@@ -89,6 +89,16 @@ module ApplicationHelper
       end
     end
     html.html_safe
+  end
+
+  def what_column(column, objeto)
+    if column.eql?(:value)
+      to_real(objeto.attributes[column.to_s])
+    elsif column.eql?(:announcement_id)
+      link_to objeto.announcement.name, admin_announcement_path(objeto), :rel => :tooltip, :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
+    else 
+      objeto.attributes[column.to_s] 
+    end 
   end
 
   # não usados ainda
@@ -107,14 +117,16 @@ module ApplicationHelper
         html << build_action_link(actions, objeto)
       end
     end
-    content_tag(:td, html.html_safe, :class => 'actions btn-group')
+    html.html_safe
   end
 
   def build_action_link(action, objeto)
+    objeto_for_route = objeto.class.to_s.downcase.underscore.pluralize
     case action
-      when 'show' ; link_to("<i class=\"icon-list-alt\"></i> Detalhes".html_safe,"/admin/#{objeto.class.to_s.downcase.underscore.pluralize}/#{objeto.id}",:class => 'btn')
-      when 'edit' ; link_to("<i class=\"icon-refresh\"></i> Editar".html_safe, "/admin/#{objeto.class.to_s.downcase.underscore.pluralize}/#{objeto.id}/edit",:class => 'btn')
-      when 'delete' ; link_to("<i class=\"icon-trash\"></i> Excluir".html_safe, "/admin/#{objeto.class.to_s.downcase.underscore.pluralize}/#{objeto.id}", method: :delete, data: { confirm: 'Deseja Realmente excluir ?' },:class => 'btn')
+      when :show ; link_to("<i class='icon-zoom-in'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top })
+      when :edit ; link_to("<i class='icon-pencil'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top })
+      when :delete ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}#{objeto.id}", :method => :delete, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top })
+      when :update_situation ; show_active_desactive(objeto)
     end
   end
 

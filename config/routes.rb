@@ -11,8 +11,7 @@ MyVacancy::Application.routes.draw do
 
   namespace :admin do
     root :to => 'homes#index'
-    resources :comments, :only => [:index, :show, :destroy]
-
+    resources :comments, :only => [:index, :update]
     resources :users, :except => :new do 
       put 'update_situation', :on => :member 
     end
