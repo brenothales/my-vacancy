@@ -1,6 +1,8 @@
 ptBR:
 
   general:
+    no_unread_comments: Sem registro de comentários não lidos
+    no_read_comments: Sem registro de  comentários lidos
     total_registers: total de registros  
     show_page:
       column: Coluna
@@ -202,6 +204,7 @@ ptBR:
         even: "precisa ser par"
     models:
       comment:
+        one: Comentário
         other: Comentários
       announcement:
         one: Anúncio
@@ -210,7 +213,7 @@ ptBR:
         one: Usuário
         other: Usuários
     attributes:
-      comments:
+      comment:
         name: Nome
         announcement_id: Para o anúncio
         content: Descrição

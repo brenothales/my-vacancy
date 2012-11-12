@@ -16,10 +16,10 @@ module TwitterBootstrapHelper
     end     
   end
 
-  def alert_list_empty
+  def alert_list_empty(mensagem = t('general.empty_list'))
     content_tag(:div,:class => 'alert') do
       content_tag(:button,'x',:class => 'close', data: { dismiss: "alert"})
-      content_tag(:h3, t('general.empty_list'))
+      content_tag(:h3, mensagem)
     end
   end  
 

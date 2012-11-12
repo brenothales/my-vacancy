@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :announcement
+  attr_accessible :name, :content, :email
 
   scope :has_new_comments, lambda { |user| 
     joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', false, user.id).group('comments.announcement_id')
@@ -7,11 +8,19 @@ class Comment < ActiveRecord::Base
   
   #postgres : scope :has_new_comments, where(:situation => false).group('comments.id, comments.announcement_id')
   scope :unread, lambda { |user|
-    joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', false, user.id) 
+    if user.is_role? :administrador
+      where(:situation => false).order('id DESC')
+    else
+      joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', false, user.id) 
+    end
   }
 
   scope :read, lambda { |user|
-    joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', true, user.id) 
+    if user.is_role? :administrador
+      where(:situation => true).order('id DESC')
+    else
+      joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', true, user.id) 
+    end
   }
 
 

@@ -6,11 +6,11 @@
 %hr
 - unless @comments_unread.empty?
   %h3= t('cruds.table_list.comments.unread')
-  #list-items.unread= table_list :comments, @comments_unread, [:email, :content, :announcement_id], [:update_situation, :delete]
+  #list-items.unread= table_list :comment, @comments_unread, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
 
 - unless @comments_read.empty?
   %hr
   %h3= t('cruds.table_list.comments.read')
-  #list-items.read= table_list :comments, @comments_read, [:email, :content, :announcement_id], [:update_situation, :delete]
+  #list-items.read= table_list :comment, @comments_read, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
 
 

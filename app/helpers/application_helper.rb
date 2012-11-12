@@ -43,12 +43,12 @@ module ApplicationHelper
     #"/admin/#{controller_name}/#{objeto.id}/update_situation"
     if objeto.situation
       link_to("<i class='icon-remove'></i>".html_safe, 
-              "/admin/#{controller_name}/#{objeto.id}/update_situation",
+              "/admin/#{controller_name}/#{objeto.id}",
               :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.desactive'), 
               :data => { :placement => :top }, :remote => true) 
     else
       link_to("<i class='icon-ok'></i>".html_safe, 
-              "/admin/#{controller_name}/#{objeto.id}/update_situation", 
+              "/admin/#{controller_name}/#{objeto.id}", 
               :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.active'), 
               :data => { :placement => :top }, :remote => true)
     end
@@ -95,7 +95,7 @@ module ApplicationHelper
     if column.eql?(:value)
       to_real(objeto.attributes[column.to_s])
     elsif column.eql?(:announcement_id)
-      link_to objeto.announcement.name, admin_announcement_path(objeto), :rel => :tooltip, :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
+      link_to objeto.announcement.name, admin_announcement_path(objeto.announcement), :rel => :tooltip, :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top }
     else 
       objeto.attributes[column.to_s] 
     end 
@@ -125,7 +125,8 @@ module ApplicationHelper
     case action
       when :show ; link_to("<i class='icon-zoom-in'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.show'), :data => { :placement => :top })
       when :edit ; link_to("<i class='icon-pencil'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top })
-      when :delete ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}#{objeto.id}", :method => :delete, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top })
+      when :delete ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :method => :delete, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top })
+      when :delete_ajax ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :method => :delete, :id => "#{objeto_for_route}_#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top }, :remote => true)      
       when :update_situation ; show_active_desactive(objeto)
     end
   end

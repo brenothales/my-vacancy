@@ -2,7 +2,7 @@ class Admin::CommentsController < ApplicationController
   load_and_authorize_resource
   layout 'admin'
   before_filter :authenticate_user!  
-  before_filter :load_comments, :only => [:index, :update_situation]
+  before_filter :load_comments, :only => [:index, :update]
 
   def index
     respond_with @comments_unread, @comments_read, :location => admin_comments_path
@@ -11,7 +11,7 @@ class Admin::CommentsController < ApplicationController
   def update
     @comment = Comment.find params[:id]
     @comment.update_column(:situation, !@comment.situation)
-    respond_with @comment, :location => admin_comments_path  
+    respond_with @comment, @comments_unread, @comments_read, :location => admin_comments_path  
   end
 
   def destroy

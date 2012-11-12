@@ -16,7 +16,13 @@ class Announcement < ActiveRecord::Base
     v.validates :tag_list
   end
   
-  scope :announcements_by_user, lambda { |user| where(:user_id => user.id) }
+  scope :announcements_by_user, lambda { |user| 
+    if user.is_role? :administrador
+      order('id DESC')
+    else    
+      where(:user_id => user.id) 
+    end      
+  }
   scope :actived?, where(:situation => true)
   scope :for_rent, where(:category_id => 1)
   scope :for_buy, where(:category_id => 2)

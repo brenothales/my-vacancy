@@ -1,0 +1,17 @@
+<% if @comments_read.empty? %>
+  $('.read').html("<%= j alert_list_empty %>")
+<% else %>
+  $('.read').html("<%= j render(:partial => 'read_comments', :locals => { :comments_read => @comments_read } ) %>")
+<% end %>
+
+<% if @comments_unread.empty? %>
+  $('.unread').html("<%= j alert_list_empty %>")
+<% else %>
+  $('.unread').html("<%= j render(:partial => 'unread_comments', :locals => { :comments_unread => @comments_unread } ) %>")
+<% end %>
+
+
+$('.top-left').notify({
+  message: { text: 'Seu comentário foi atualizado.' }
+}).show();
+
