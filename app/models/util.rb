@@ -11,5 +11,10 @@ module Util
     #puts menus[:menus]
     #models
 	end
+
+  def self.clean_development_log
+    File.delete('log/development.log')
+    File.open('log/development.log', 'a')  
+  end
 	
 end

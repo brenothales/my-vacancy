@@ -19,6 +19,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :day, :at => '11:00pm' do
+every 1.day, :at => '21:37' do
   runner "NotificationMailer.notify_weekly", :environment => :development
 end
+
+every 1.day, :at => '10:00 pm' do
+  runner "Util.clean_development_log", :environment => :development
+end
+

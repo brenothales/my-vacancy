@@ -3,9 +3,11 @@ one:
   email: lccezinha@gmail.com
   content: hahaha esse foi muito bom
   situation: false
+  announcement_id: 1
 
 two:
   name: Luiz Marrone
   email: marrone@gmail.com
   content: hahaha esse foi muito bom
   situation: true
+  announcement_id: 2

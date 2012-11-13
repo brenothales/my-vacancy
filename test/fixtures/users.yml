@@ -1,6 +1,8 @@
-one:
-  name: Luiz Cezer
+user_one: 
+  id: 1
+  email: lccezinha@gmail.com
+  encrypted_password: batata
   role_id: 1
   phone: (45) 9985-8693
   situation: true
-
+  
