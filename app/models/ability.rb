@@ -7,7 +7,10 @@ class Ability
       can :manage, :all
     elsif user.is_role?(:moderador)
       can :manage, Announcement   #só deixa manipular os anúncios dele...       
-      can :manage, User
+      can :read, User
+      can :update, User do |u|
+        u == user
+      end 
       can :manage, Comment
     end   
 

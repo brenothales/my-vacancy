@@ -1,0 +1,6 @@
+%ul.inline.quick-filters
+  %h6= t('forms.search.quick_search') 
+  %li= link_to "<i class='icon-shopping-cart'></i>  #{t('forms.announcement.sale')} (#{@announcements_for_sale.size})".html_safe, { :controller => 'admin/announcements', :action => :announcements_by_category, :category_id => 3 }, :title => t('tooltips.filters.sale'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
+  %li= link_to "<i class='icon-shopping-cart'></i>  #{t('forms.announcement.rent')} (#{@announcements_for_rent.size})".html_safe, { :controller => 'admin/announcements', :action => :announcements_by_category, :category_id => 1 }, :title => t('tooltips.filters.rent'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
+  %li= link_to "<i class='icon-shopping-cart'></i>  #{t('forms.announcement.buy')} (#{@announcements_for_buy.size})".html_safe, { :controller => 'admin/announcements', :action => :announcements_by_category, :category_id => 2 }, :title => t('tooltips.filters.buy'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
+

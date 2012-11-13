@@ -2,8 +2,14 @@ class Comment < ActiveRecord::Base
   belongs_to :announcement
   attr_accessible :name, :content, :email
 
+  scope :by_situation, lambda { |situation| where(:situation => situation) }
+  
   scope :has_new_comments, lambda { |user| 
     joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', false, user.id).group('comments.announcement_id')
+  }
+
+  scope :by_announcement_by_user, lambda { |user|
+    joins(:announcement).where('announcements.user_id = ?', user.id).order('created_at')  
   }
   
   #postgres : scope :has_new_comments, where(:situation => false).group('comments.id, comments.announcement_id')
@@ -22,7 +28,6 @@ class Comment < ActiveRecord::Base
       joins(:announcement).where('comments.situation = ? AND announcements.user_id = ?', true, user.id) 
     end
   }
-
 
   with_options :presence => true do |validation|
     validation.validates :name

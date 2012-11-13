@@ -1,24 +1,11 @@
 %h3= "#{t('forms.comments.index')} "
 %hr
 %span
+  .pull-left.quick_filters= quick_filters_by_read_or_unread(@comments_read, @comments_unread)
   .select-per-page= itens_per_page
   .pull-right= search_form_for_index 'comments'
 %hr
-- unless @comments_unread.empty?
-  %h3= t('cruds.table_list.comments.unread')
-  #list-items.unread= table_list :comment, @comments_unread, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
--else
-  #list-item.unnread
-    %table.table.table-bordered.table-striped
-      %tr
-        %td hahahaha
-- unless @comments_read.empty?
-  %hr
-  %h3= t('cruds.table_list.comments.read')
-  #list-items.read= table_list :comment, @comments_read, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
--else
-  #list-item.unnread
-    %table.table.table-bordered.table-striped
-      %tr
-        %td hahahaha
-
+- unless @comments.empty?
+  #list-items.comments= table_list :comment, @comments, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
+- else
+  = alert_list_empty

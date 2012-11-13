@@ -59,8 +59,12 @@ module ApplicationHelper
     render :partial => "/admin/shared/form_search", :locals => { :route_for_search => route_for_search }
   end
 
+  def quick_filters_by_read_or_unread(reads, unreads)
+    render :partial => "/admin/shared/reads_unreads", :locals => { :reads => reads, :unreads => unreads, :controller_name => controller_name, :total => (reads.size + unreads.size) }
+  end
+
   def quick_filters_by_category(for_sale, for_rent, for_buy)
-    render :partial => "/admin/shared/filter_by_category", :locals => { :for_sale => for_sale, :for_rent => for_rent, :for_buy => for_buy }
+    render :partial => "/admin/announcements/filter_by_category", :locals => { :for_sale => for_sale, :for_rent => for_rent, :for_buy => for_buy }
   end
   
   def to_real(value)

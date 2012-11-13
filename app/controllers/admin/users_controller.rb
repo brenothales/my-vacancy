@@ -5,8 +5,12 @@ class Admin::UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @users = User.search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])
-    respond_with @users, :location => admin_users_path
+    if current_user.is_role?(:administrador)
+      @users = User.search(params[:search], order_by, ordem).paginate(:per_page => params[:per_page],:page => params[:page])
+      respond_with @users, :location => admin_users_path
+    else
+      redirect_to edit_admin_user_path(current_user)
+    end
   end
 
   def show

@@ -2,10 +2,16 @@ class Admin::CommentsController < ApplicationController
   load_and_authorize_resource
   layout 'admin'
   before_filter :authenticate_user!  
-  before_filter :load_comments, :only => [:index, :update]
+  before_filter :load_comments, :only => [:index, :update, :comments_by_situation]
 
   def index
-    respond_with @comments_unread, @comments_read, :location => admin_comments_path
+    @comments  = Comment.by_announcement_by_user(current_user).search(params[:search], order_by, ordem).paginate(:per_page => 5, :page => params[:page])
+    respond_with @comments, @comments_unread, @comments_read, :location => admin_comments_path
+  end
+
+  def comments_by_situation
+    @comments = Comment.by_announcement_by_user(current_user).by_situation(params[:situation]).order("#{order_by} #{ordem}").paginate(:per_page => params[:per_page],:page => params[:page]) if params[:situation]
+    render :action => :index
   end
 
   def update

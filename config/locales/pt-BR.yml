@@ -92,7 +92,7 @@ ptBR:
       fourth: Informações adicionais
 
     new: Cadastrar novo
-    list: Listar
+    list: Listar | Editar
     submit: Confirmar
     reset: Limpar campos
  
@@ -101,11 +101,16 @@ ptBR:
       update: "%{model} atualizada com sucesso"
       destroy: "%{model} apagada com sucesso"
     table_list:
+      all: Listar todos
+      unread: Não lidos
+      read: Lidos
       comments:
+        aproved: Aprovados
+        deny: Pendentes - Não Aceitos
         unread: Comentários não lidos
         read: Comentários lidos
         accept: Aprovar
-        deny: Desaprovar
+        deny: Desaprovados
       tooltips:
         edit: editar registro
         show: visualiar detalhes do registro
@@ -146,6 +151,11 @@ ptBR:
     announcements:
       new: Cadastrar novo anúncio
     filters:
+      all: Listar Todos
+      aproved: Filtre pelos aprovados
+      deny: Filtre pelos desaprovados ou não lidos
+      read: Filtre pelos lidos
+      unread: Filtre pelos não lidos
       rent: Filtre anúncios de alugel
       sale: Filtre anúncios de venda
       buy: Filtre anúncios de compra
