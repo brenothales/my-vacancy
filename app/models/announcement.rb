@@ -23,6 +23,7 @@ class Announcement < ActiveRecord::Base
       where(:user_id => user.id) 
     end      
   }
+
   scope :actived?, where(:situation => true)
   scope :for_rent, where(:category_id => 1)
   scope :for_buy, where(:category_id => 2)
