@@ -25,12 +25,12 @@ ptBR:
     updated_at: Atualizado em
     back: Voltar
     about_system:
-      title_one: O que Nameless ?
-      content_one: É um sistema onde pessoas podem se registrar e fazer seu anúncios, de maneira fácil. Podem ainda gerenciar seus interesses em outros anúncios, verificar pessoas interessadas em seus anúncios e realizar contato para fechar negócio
-      title_two: Quando pago para usar o Nameless ?
-      content_two: Você não paga nada para poder cadastrar e acompanhar quantos anúncios quiser
-      title_three: Por que devo anunciar no Nameless ?
-      content_three: O Nameless é um sistema que fornece um agradavel e simples interface para todas as suas ações, e quanto mais gente anunciar, melhor o sistema fica.
+      title_one: O que Meu Anúncio Fácil ?
+      content_one: É um sistema onde pessoas podem se registrar e fazer seu anúncios de maneira fácil. Podem gerenciar seus anúncios, verificar comentários e propostas sobre esses anúncios.
+      title_two: Quanto pago para usar o Meu Anúncio Fácil ?
+      content_two: Inicialmente você não paga nada para utilizar o plano gratuito que limita você a possuir 5 anúncios, conforme sua necessidade verifique sobre outros planos aqui.
+      title_three: Por que devo anunciar no Meu Anúncio Fácil ?
+      content_three: O Meu Anúncio Fácil é um sistema que fornece um agradavel e simples interface para todas as suas ações, e quanto mais gente anunciar, mais produtos, prospotas e comentário vão surgir, fazendo o sistema cada vez melhor
 
   page:
     titles:
@@ -76,7 +76,7 @@ ptBR:
   hints:
     announcements:
       new:
-       tags: "as tags devem ser separadas por vírgulas. Exemplo : tag1, tag2, tag3, tag4, ..."
+       tags: as tags devem ser separadas por TAB
 
   preferences:
     welcome: Bem vindo
@@ -167,13 +167,15 @@ ptBR:
     admin:
       announcements_all: Todos anúncios
       users_all: Todos usuários
+      items:
+        last_users: Últimos usuários
       tooltips:
         details: veja os detalhes do registro
     announcement_empty: Sem anúncios
     proposals_empty: Sem propostas
     announcements: veja todos os seus anúncios
     comments_received: veja seus comentários recebidos
-    proposals_received: veja suas propostas recebidas%li= link_to "#{t('dashboard.moderador.status.comments')}<span class='alinhamento label label-info'>3</span>".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
+    proposals_received: veja suas propostas recebida
     shortcut: Atalhos
     moderador:
       has_new_comments: "O anúncio : <strong>%{announcement}</strong>, possui novos comentários"

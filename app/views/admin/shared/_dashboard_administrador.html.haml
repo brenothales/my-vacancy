@@ -17,8 +17,8 @@
   .span5.well.offset1
     - unless @users_last_five.empty?
       %ul.nav.nav-list
-        %li.nav-header= t('dashboard.moderador.items.last_announcements')
+        %li.nav-header= t('dashboard.admin.items.last_users')
         - @users_last_five.each do |user|
           %li= link_to "#{user.name} <span class='alinhamento label label-inverse'>#{user.formated_created_at}</span> ".html_safe, admin_user_path(user), :rel => :tooltip, :title => t('dashboard.admin.tooltips.details'), :data => { :placement => :top }       
         %li.divider
-        %li= link_to t('dashboard.admin.users_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.admin.users_all'), :data => { :placement => :top }
+        %li= link_to t('dashboard.admin.users_all'), admin_users_path, :rel => :tooltip, :title => t('dashboard.admin.users_all'), :data => { :placement => :top }

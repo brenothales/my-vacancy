@@ -13,3 +13,5 @@ $ ->
     thousandsSeparator: '.',
     clearPrefix: true
   })
+    
+  $('#announcement_tag_list').tagsInput();

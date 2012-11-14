@@ -42,7 +42,7 @@ class Comment < ActiveRecord::Base
 
   def self.search(search, order_by, ordem)
     unless search.nil? || search.empty?
-      joins(:announcement).where('comments.name LIKE :search OR announcements.name = :search', :search => "%#{search}%").order("#{order_by} #{ordem}")
+      joins(:announcement).where('comments.name LIKE :search OR comments.content LIKE :search OR announcements.name = :search', :search => "%#{search}%").order("#{order_by} #{ordem}")
     else
       order("#{order_by} #{ordem}")
     end
