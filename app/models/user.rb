@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   after_create :notification_user
 
+  def formated_created_at
+    created_at.strftime("%d/%m/%Y")  
+  end
+
   def self.search(search, order_by, ordem)
     unless search.nil? || search.empty?
       where('name LIKE ?',"%#{search}%").order("#{order_by} #{ordem}")

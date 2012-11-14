@@ -164,6 +164,13 @@ ptBR:
   
 
   dashboard:
+    admin:
+      announcements_all: Todos anúncios
+      users_all: Todos usuários
+      tooltips:
+        details: veja os detalhes do registro
+    announcement_empty: Sem anúncios
+    proposals_empty: Sem propostas
     announcements: veja todos os seus anúncios
     comments_received: veja seus comentários recebidos
     proposals_received: veja suas propostas recebidas%li= link_to "#{t('dashboard.moderador.status.comments')}<span class='alinhamento label label-info'>3</span>".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 

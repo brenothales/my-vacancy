@@ -1,6 +1,6 @@
 %ul.inline.quick-filters
   %h6= t('forms.search.quick_search') 
-  %li= link_to "<i class='icon-list-all'></i>  #{t('cruds.table_list.all')} (#{total})".html_safe, admin_comments_path, :title => t('tooltips.filters.all'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
-  %li= link_to "<i class='icon-thumbs-up'></i>  #{t('cruds.table_list.comments.aproved')} (#{reads.size})".html_safe, { :controller => "admin/#{controller_name}", :action => :comments_by_situation, :situation => 1  }, :title => t('tooltips.filters.aproved'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
-  %li= link_to "<i class='icon-thumbs-down'></i>  #{t('cruds.table_list.comments.deny')} (#{unreads.size})".html_safe, { :controller => "admin/#{controller_name}", :action => :comments_by_situation, :situation => 0 }, :title => t('tooltips.filters.deny'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
+  %li= link_to "<i class='icon-list-all'></i>  #{t('cruds.table_list.all')} <span id='total'>(#{total})</span>".html_safe, admin_comments_path, :title => t('tooltips.filters.all'), :rel => :tooltip, :data => { :placement => :bottom }, :class => :filter
+  %li= link_to "<i class='icon-thumbs-up'></i>  #{t('cruds.table_list.comments.aproved')} <span id='total_reads'>(#{reads.size})</span>".html_safe, { :controller => "admin/#{controller_name}", :action => :comments_by_situation, :situation => 1  }, :title => t('tooltips.filters.aproved'), :rel => :tooltip, :data => { :placement => :bottom },:class => :filter
+  %li= link_to "<i class='icon-thumbs-down'></i>  #{t('cruds.table_list.comments.deny')} <span id='total_unreads'>(#{unreads.size})</span>".html_safe, { :controller => "admin/#{controller_name}", :action => :comments_by_situation, :situation => 0 }, :title => t('tooltips.filters.deny'), :rel => :tooltip, :data => { :placement => :bottom },:class => :filter
 

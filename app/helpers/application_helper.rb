@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ActsAsTaggableOn::TagsHelper
 
   def show_ordenation(field)
     content_tag(:span, :class => 'pull-right', :id => 'ordenations') do

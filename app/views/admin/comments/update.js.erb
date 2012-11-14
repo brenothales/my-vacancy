@@ -1,4 +1,6 @@
 $("#comment_<%= @comment.id %>").remove();
+$('#total_reads').text("(<%= @comments_read.size %>)");
+$('#total_unreads').text("(<%= @comments_unread.size %>)");
 $('.top-left').notify({
   message: { text: 'Seu comentário foi atualizado.' }
 }).show();

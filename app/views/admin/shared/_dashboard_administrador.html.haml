@@ -4,23 +4,21 @@
 
 .row
   .span5.well
-    %ul.nav.nav-list
-      %li.nav-header Últimos anuncios
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, admin_announcements_path, :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top }
-      %li.divider
-      %li= link_to t('dashboard.moderador.links.announcements_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.moderador.links.announcements_all'), :data => { :placement => :top }
+    - unless @announcements_last_five.empty?
+      %ul.nav.nav-list
+        %li.nav-header= t('dashboard.moderador.items.last_announcements')
+        - @announcements_last_five.each do |announcement|
+          %li= link_to "#{announcement.name} <span class='alinhamento label label-inverse'>#{announcement.formated_created_at}</span> ".html_safe, admin_announcement_path(announcement), :rel => :tooltip, :title => t('dashboard.admin.tooltips.details'), :data => { :placement => :top }       
+        %li.divider
+        %li= link_to t('dashboard.admin.announcements_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.admin.announcements_all'), :data => { :placement => :top }
+    - else
+      %h3.text-warning= t('dashboard.announcement_empty')
 
-  .span5.offset1.well
-    %ul.nav.nav-list
-      %li.nav-header Utimos usuarios
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.comments_received'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
-      %li= link_to "#{t('dashboard.moderador.status.comments')} <span class='alinhamento label label-inverse'>31/12/1990</span> ".html_safe, "#", :rel => :tooltip, :title => t('dashboard.announcements'), :data => { :placement => :top } 
-      %li.divider
-      %li= link_to "#{t('dashboard.moderador.links.proposals_all')}"
+  .span5.well.offset1
+    - unless @users_last_five.empty?
+      %ul.nav.nav-list
+        %li.nav-header= t('dashboard.moderador.items.last_announcements')
+        - @users_last_five.each do |user|
+          %li= link_to "#{user.name} <span class='alinhamento label label-inverse'>#{user.formated_created_at}</span> ".html_safe, admin_user_path(user), :rel => :tooltip, :title => t('dashboard.admin.tooltips.details'), :data => { :placement => :top }       
+        %li.divider
+        %li= link_to t('dashboard.admin.users_all'), admin_announcements_path, :rel => :tooltip, :title => t('dashboard.admin.users_all'), :data => { :placement => :top }
