@@ -3,6 +3,7 @@ class Announcement < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments
+  has_many :proposals
   attr_accessible :content, :name, :value, :city_id, :tag_list, :category_id, :user_id
 
   acts_as_taggable

@@ -15,6 +15,10 @@ MyVacancy::Application.routes.draw do
       get 'comments_by_situation', :on => :collection
     end
 
+    resources :proposals, :except => [:show, :edit] do 
+      get 'proposals_by_situation', :on => :collection    
+    end
+
     resources :users, :except => :new do 
       put 'update_situation', :on => :member 
     end

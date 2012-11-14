@@ -1,0 +1,7 @@
+$("#proposal_<%= @proposal.id %>").remove();
+$('#total_reads').text("(<%= @proposal_read.size %>)");
+$('#total_unreads').text("(<%= @proposal_unread.size %>)");
+$('.top-left').notify({
+  message: { text: 'Sua proposta foi apagada.' }
+}).show();
+

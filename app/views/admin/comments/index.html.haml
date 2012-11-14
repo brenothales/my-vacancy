@@ -1,7 +1,7 @@
 %h3= "#{t('forms.comments.index')} "
 %hr
 %span
-  .pull-left.quick_filters= quick_filters_by_read_or_unread(@comments_read, @comments_unread)
+  .pull-left.quick_filters= quick_filters_by_read_or_unread(@comments_read, @comments_unread, :comments_by_situation)
   .select-per-page= itens_per_page
   .pull-right= search_form_for_index 'comments'
 %hr

@@ -140,9 +140,10 @@ ptBR:
       index: Lista de usuários
       show: "Detalhes do usuário > %{user}"
     comments:
-      index: Lista de comentários
+      index: Lista de comentários recebidos
       check: Seus Comentários
     proposals:
+      index: Lista de propostas recebidas
       check: Propostas Recebidas
 
   

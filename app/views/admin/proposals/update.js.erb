@@ -1,0 +1,7 @@
+$("#proposal_<%= @proposal.id %>").remove();
+$('#total_reads').text("(<%= @proposals_read.size %>)");
+$('#total_unreads').text("(<%= @proposals_unread.size %>)");
+$('.top-left').notify({
+  message: { text: 'Sua proposta foi atualizada.' }
+}).show();
+

@@ -1,0 +1,11 @@
+%h3= "#{t('forms.proposals.index')} "
+%hr
+%span
+  .pull-left.quick_filters= quick_filters_by_read_or_unread(@proposals_read, @proposals_unread, :proposals_by_situation)
+  .select-per-page= itens_per_page
+  .pull-right= search_form_for_index 'proposals'
+%hr
+- unless @proposals.empty?
+  #list-items= table_list :proposal, @proposals, [:email, :content, :announcement_id], [:update_situation, :delete_ajax]
+- else
+  = alert_list_empty

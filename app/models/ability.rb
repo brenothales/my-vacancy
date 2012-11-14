@@ -6,7 +6,8 @@ class Ability
     if user.is_role?(:administrador)
       can :manage, :all
     elsif user.is_role?(:moderador)
-      can :manage, Announcement   #só deixa manipular os anúncios dele...       
+      can :manage, Announcement #só deixa manipular os anúncios dele...   
+      can :manage, Proposal 
       can :read, User
       can :update, User do |u|
         u == user

@@ -6,4 +6,6 @@ rails g model City name:string uf:string state:references
 
 rails g scaffold Announcement name:string content:text value:string city:references user:references phone:string situation:boolean --skip-stylesheet
 
-rails g scaffold Admin::Comment name:string email:string content:text --skil-stylesheet
+rails g scaffold Admin::Comment name:string email:string content:text situation:boolean  --skil-stylesheet
+
+rails g scaffold Proposal name:string content:text situation:boolean --skip-stylesheet
