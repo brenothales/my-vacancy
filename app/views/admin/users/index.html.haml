@@ -5,7 +5,7 @@
   .pull-right= search_form_for_index 'users'
 
 - unless @users.empty?
-  #list-items= table_list :user, @users
+  #list-items= table_list :user, @users, [],[:edit, :show, :update_situation]
 - else
   = alert_list_empty
 

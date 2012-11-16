@@ -30,9 +30,8 @@ class Admin::UsersController < ApplicationController
 
   def update_situation 
     @user = User.find(params[:id])    
-    @user.situation = @user.situation ? false : true
-    @user.save
-    respond_with @user
+    @user.situation = @user.update_column(:situation, !@user.situation)
+    respond_with @user, :location => admin_users_path
   end
 
 end

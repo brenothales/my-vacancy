@@ -40,6 +40,6 @@
           - @proposals_last_five.each do |proposal|
             %li= link_to "#{proposal.name} <span class='alinhamento label label-inverse'>#{proposal.formated_created_at}</span> ".html_safe, admin_proposal_path(proposal), :rel => :tooltip, :title => t('dashboard.proposals'), :data => { :placement => :top }       
           %li.divider
-          %li= link_to "#{t('dashboard.moderador.links.proposals_all')}"
+          %li= link_to "#{t('dashboard.moderador.links.proposals_all')}", admin_proposals_path, :rel => :tooltip, :title => t('dashboard.moderador.links.proposals_all'), :data => { :placement => :top }
       - else
         %h3.text-warning= t('dashboard.proposals_empty')

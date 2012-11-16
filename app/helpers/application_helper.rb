@@ -40,16 +40,18 @@ module ApplicationHelper
     html.html_safe
   end
 
-  def show_active_desactive(objeto)
+  def show_active_desactive(objeto, update_situation_route = false)
+    default_route = "/admin/#{controller_name}/#{objeto.id}"
+    default_route = "/admin/#{controller_name}/#{objeto.id}/update_situation" if update_situation_route
     #"/admin/#{controller_name}/#{objeto.id}/update_situation"
     if objeto.situation
       link_to("<i class='icon-remove'></i>".html_safe, 
-              "/admin/#{controller_name}/#{objeto.id}",
+              default_route,
               :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.desactive'), 
               :data => { :placement => :top }, :remote => true) 
     else
       link_to("<i class='icon-ok'></i>".html_safe, 
-              "/admin/#{controller_name}/#{objeto.id}", 
+              default_route, 
               :method => :put, :rel => :tooltip, :title => t('cruds.table_list.tooltips.active'), 
               :data => { :placement => :top }, :remote => true)
     end
@@ -132,7 +134,7 @@ module ApplicationHelper
       when :edit ; link_to("<i class='icon-pencil'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}/edit", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.edit'), :data => { :placement => :top })
       when :delete ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :method => :delete, :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top })
       when :delete_ajax ; link_to("<i class='icon-trash'></i>".html_safe, "/admin/#{objeto_for_route}/#{objeto.id}", :method => :delete, :id => "#{objeto_for_route}_#{objeto.id}", :rel => 'tooltip', :title => t('cruds.table_list.tooltips.delete'), :confirm => t('cruds.table_list.tooltips.confirm'), :data => { :placement => :top }, :remote => true)      
-      when :update_situation ; show_active_desactive(objeto)
+      when :update_situation ; show_active_desactive(objeto, true)
     end
   end
 
